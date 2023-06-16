@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Container, Grid, Typography, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@material-ui/core';
+import {
+  Button,
+  Container,
+  Grid,
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  DialogActions,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import StarIcon from '@material-ui/icons/Star';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import SearchIcon from '@material-ui/icons/Search';
+import bgImage from '../assets/bg.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: 'linear-gradient(135deg, #F9A825 0%, #FFFFFF 50%, #2196F3 100%)',
+    background: `url(${bgImage}) center center/cover no-repeat`,
     padding: theme.spacing(3),
-    minHeight: '100vh',
-  },
+    height: '100%',
+  }, 
   header: {
     backgroundColor: '#282c34',
     padding: theme.spacing(3),
@@ -19,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   intro: {
     padding: theme.spacing(6, 3),
     textAlign: 'center',
-    color: '#282c34',
+    color: '#ffffff',
   },
   features: {
     padding: theme.spacing(3),
@@ -64,6 +80,46 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
     },
   },
+  formField: {
+    marginBottom: theme.spacing(2),
+  },
+  labelNoDecoration: {
+    textDecoration: 'none',
+  },
+  searchBar: {
+    display: 'flex', // Make it a flex container
+    flexDirection: 'column', // Align children in a column
+    justifyContent: 'center', // Center children vertically
+    alignItems: 'center', // Center children horizontally
+    width: '90%', // Extend to the full width of the parent container
+    padding: theme.spacing(4, 2),
+    color: '#ffffff',
+    background: 'rgba(255, 255, 255, 0.3)', // You can adjust the alpha value here.
+    backdropFilter: 'blur(20px)', // You can adjust the blur value here.
+  },
+  searchSection: {
+    background: 'rgba(255, 255, 255, 0.8)',
+    borderRadius: theme.spacing(1),
+    padding: theme.spacing(2),
+    color: '#ffffff',
+    backdropFilter: 'blur(5px)',
+    maxWidth: 400,
+    margin: '0 auto',
+  },
+  searchInputs: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.spacing(2),
+  },
+  formControl: {
+    marginRight: theme.spacing(2),
+    minWidth: 200,
+  },
+  searchButton: {
+    marginLeft: theme.spacing(2),
+    minWidth: '100px',
+  },
 }));
 
 const HomePage: React.FC = () => {
@@ -71,19 +127,35 @@ const HomePage: React.FC = () => {
 
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
+  const [selectedSpecialty, setSelectedSpecialty] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
-  const [loginForm, setLoginForm] = useState({email: "", password: ""});
-  const [registerForm, setRegisterForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
+  const [loginForm, setLoginForm] = useState({ email: '', password: '' });
+  const [registerForm, setRegisterForm] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
     address: {
-      street: "",
-      city: "",
-      postcode: "",
-      state: "",
-      country: "",
+      street: string;
+      city: string;
+      postcode: string;
+      state: string;
+      country: string;
+    };
+    language: string[];
+  }>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    address: {
+      street: '',
+      city: '',
+      postcode: '',
+      state: '',
+      country: '',
     },
     language: [],
   });
@@ -95,25 +167,36 @@ const HomePage: React.FC = () => {
     });
   };
 
-  const handleRegisterFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRegisterFormChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | { name?: string; value: unknown }
+    >
+  ) => {
     const { name, value } = e.target;
-    
-    // Check if the field is inside the address object
-    if (['street', 'city', 'postcode', 'state', 'country'].includes(name)) {
-      setRegisterForm(prevState => ({
+
+    if (name === 'language') {
+      const selectedLanguages = Array.isArray(value)
+        ? (value as string[])
+        : [value as string];
+      setRegisterForm((prevState) => ({
+        ...prevState,
+        language: selectedLanguages,
+      }));
+    } else if (['street', 'city', 'postcode', 'state', 'country'].includes(name as string)) {
+      setRegisterForm((prevState) => ({
         ...prevState,
         address: {
           ...prevState.address,
-          [name]: value,
+          [name as string]: value,
         },
       }));
     } else {
-      setRegisterForm(prevState => ({
+      setRegisterForm((prevState) => ({
         ...prevState,
-        [name]: value,
+        [name as string]: value,
       }));
     }
-  };  
+  };
 
   const handleOpenLogin = () => setOpenLogin(true);
   const handleCloseLogin = () => setOpenLogin(false);
@@ -122,10 +205,10 @@ const HomePage: React.FC = () => {
   const handleCloseRegister = () => setOpenRegister(false);
 
   const handleLoginSubmit = async () => {
-    const response = await fetch("/api/v1/user/login", {
-      method: "POST",
+    const response = await fetch('/api/v1/user/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(loginForm),
     });
@@ -135,16 +218,33 @@ const HomePage: React.FC = () => {
   };
 
   const handleRegisterSubmit = async () => {
-    const response = await fetch("/api/v1/user/register", {
-      method: "POST",
+    const response = await fetch('/api/v1/user/register', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(registerForm),
     });
     const data = await response.json();
     console.log(data);
     setOpenRegister(false);
+  };
+
+  const handleSpecialtyChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSelectedSpecialty(event.target.value as string);
+  };
+  
+  const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedLocation(event.target.value);
+  };
+  
+  const handleLanguagesChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSelectedLanguages(event.target.value as string[]);
+  };
+
+  const handleSearch = () => {
+    // Perform search based on selectedSpecialty, selectedLocation, and selectedLanguages
+    // Update your search results accordingly
   };
 
   return (
@@ -173,6 +273,56 @@ const HomePage: React.FC = () => {
             <Typography variant="body1" color="inherit" gutterBottom>
               Find healthcare providers based on your preferred language and area of specialization.
             </Typography>
+          </Container>
+        </section>
+        <section className={classes.searchBar}>
+          <Container maxWidth="md">
+            <div className={classes.searchInputs}>
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="specialty">Specialty</InputLabel>
+                <Select
+                  id="specialty"
+                  value={selectedSpecialty}
+                  onChange={handleSpecialtyChange}
+                >
+                  <MenuItem value="Cardiology">Cardiology</MenuItem>
+                  <MenuItem value="Dentistry">Dentistry</MenuItem>
+                  <MenuItem value="Orthopedics">Orthopedics</MenuItem>
+                  {/* Add more specialties as needed */}
+                </Select>
+              </FormControl>
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="location">Location</InputLabel>
+                <TextField
+                  id="location"
+                  value={selectedLocation}
+                  onChange={handleLocationChange}
+                />
+              </FormControl>
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="language">Language</InputLabel>
+                <Select
+                  id="language"
+                  multiple
+                  value={selectedLanguages}
+                  onChange={handleLanguagesChange}
+                >
+                  <MenuItem value="English">English</MenuItem>
+                  <MenuItem value="Spanish">Spanish</MenuItem>
+                  <MenuItem value="French">French</MenuItem>
+                  {/* Add more languages as needed */}
+                </Select>
+              </FormControl>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.searchButton}
+                startIcon={<SearchIcon />}
+                onClick={handleSearch}
+              >
+                Search
+              </Button>
+            </div>
           </Container>
         </section>
         <section className={classes.features}>
@@ -240,28 +390,129 @@ const HomePage: React.FC = () => {
           <TextField margin="dense" id="password" label="Password" type="password" name="password" onChange={handleLoginFormChange} fullWidth />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseLogin} color="primary">Cancel</Button>
-          <Button onClick={handleLoginSubmit} color="primary">Submit</Button>
+          <Button onClick={handleCloseLogin} color="primary" variant="outlined">
+            Cancel
+          </Button>
+          <Button onClick={handleLoginSubmit} color="primary" variant="contained">
+            Submit
+          </Button>
         </DialogActions>
       </Dialog>
       {/* Register Dialog */}
       <Dialog open={openRegister} onClose={handleCloseRegister}>
         <DialogTitle>Register</DialogTitle>
         <DialogContent>
-          <TextField autoFocus margin="dense" id="firstName" label="First Name" type="text" name="firstName" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="lastName" label="Last Name" type="text" name="lastName" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="email" label="Email" type="email" name="email" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="password" label="Password" type="password" name="password" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="street" label="Street" type="text" name="street" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="city" label="City" type="text" name="city" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="postcode" label="Postcode" type="text" name="postcode" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="state" label="State" type="text" name="state" onChange={handleRegisterFormChange} fullWidth />
-          <TextField margin="dense" id="country" label="Country" type="text" name="country" onChange={handleRegisterFormChange} fullWidth />
-          {/* Language field not added as it's not clear what type of input you'd like. If you'd like a select field or some other type of input, that will require a different type of component */}
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+            <TextField
+              id="firstName"
+              name="firstName"
+              label="First Name"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={6}>
+            <TextField
+              id="lastName"
+              name="lastName"
+              label="Last Name"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="email"
+              name="email"
+              label="Email"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+          </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="password"
+              name="password"
+              label="Password"
+              type="password"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl fullWidth>
+                <InputLabel htmlFor="language">Language</InputLabel>
+                <Select
+                  multiple
+                  value={registerForm.language}
+                  onChange={handleRegisterFormChange}
+                  inputProps={{
+                    name: 'language',
+                    id: 'language',
+                  }}
+                >
+                  <MenuItem value="English">English</MenuItem>
+                  <MenuItem value="Spanish">Spanish</MenuItem>
+                  <MenuItem value="French">French</MenuItem>
+                  {/* Add more languages as needed */}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="street"
+              name="street"
+              label="Street"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={6}>
+            <TextField
+              id="city"
+              name="city"
+              label="City"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={6}>
+            <TextField
+              id="postcode"
+              name="postcode"
+              label="Postcode"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={6}>
+            <TextField
+              id="state"
+              name="state"
+              label="State"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+            <Grid item xs={6}>
+            <TextField
+              id="country"
+              name="country"
+              label="Country"
+              onChange={handleRegisterFormChange}
+              fullWidth
+            />
+            </Grid>
+          </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseRegister} color="primary">Cancel</Button>
-          <Button onClick={handleRegisterSubmit} color="primary">Submit</Button>
+          <Button onClick={handleCloseRegister} color="primary" variant="outlined">
+            Cancel
+          </Button>
+          <Button onClick={handleRegisterSubmit} color="primary" variant="contained">
+            Submit
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
