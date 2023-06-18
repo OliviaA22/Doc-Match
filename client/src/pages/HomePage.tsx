@@ -19,14 +19,13 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import StarIcon from '@material-ui/icons/Star';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import SearchIcon from '@material-ui/icons/Search';
-import bgImage from '../assets/bg.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: `url(${bgImage}) center center/cover no-repeat`,
+    background: `radial-gradient(circle, #ff6a00, #ee0979)`,
     padding: theme.spacing(3),
     height: '100%',
-  }, 
+  },
   header: {
     backgroundColor: '#282c34',
     padding: theme.spacing(3),
