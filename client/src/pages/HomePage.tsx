@@ -14,22 +14,35 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Box
 } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import StarIcon from '@material-ui/icons/Star';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import SearchIcon from '@material-ui/icons/Search';
+import bgImage from '../assets/bg.jpg';
+import BlogList from '../pages/BlogList';
+import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import EmailIcon from '@material-ui/icons/Email';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: `radial-gradient(circle, #ff6a00, #ee0979)`,
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
     padding: theme.spacing(3),
     height: '100%',
   },
   header: {
-    backgroundColor: '#282c34',
+    background: 'radial-gradient(circle at center, white 0%, #89CFF0 40%, #CCCCCC 60%)',
     padding: theme.spacing(3),
-    color: '#fff',
+    color: 'black',
   },
   intro: {
     padding: theme.spacing(6, 3),
@@ -85,16 +98,29 @@ const useStyles = makeStyles((theme) => ({
   labelNoDecoration: {
     textDecoration: 'none',
   },
+  boldText: {
+    fontWeight: 'bold',
+  },
+  largeFont: {
+    fontSize: '1.6rem',
+  },
+  inputLabel: {
+    color: 'white',
+  },
+  effect: {
+    textDecoration: 'underline',
+    transition: 'color 0.3s',
+  },
   searchBar: {
-    display: 'flex', // Make it a flex container
-    flexDirection: 'column', // Align children in a column
-    justifyContent: 'center', // Center children vertically
-    alignItems: 'center', // Center children horizontally
-    width: '90%', // Extend to the full width of the parent container
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
     padding: theme.spacing(4, 2),
     color: '#ffffff',
-    background: 'rgba(255, 255, 255, 0.3)', // You can adjust the alpha value here.
-    backdropFilter: 'blur(20px)', // You can adjust the blur value here.
+    background: 'rgba(255, 255, 255, 0.3)',
+    backdropFilter: 'blur(25px)', 
   },
   searchSection: {
     background: 'rgba(255, 255, 255, 0.8)',
@@ -119,10 +145,55 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     minWidth: '100px',
   },
+  blueButton: {
+    color: 'blue',
+    borderColor: 'blue',
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 255, 0.1)', 
+    },
+  },
+  blog: {
+    padding: theme.spacing(8, 0, 6),
+    backgroundColor: theme.palette.background.paper,
+  },
+  sectionTitle: {
+    marginBottom: theme.spacing(3),
+    color: theme.palette.primary.main,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  blogContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
+  },
+  blogItem: {
+    flex: '0 0 calc(33.333% - 1em)',
+    margin: '0.5em',
+    [theme.breakpoints.down('sm')]: {
+      flex: '0 0 100%',
+    },
+  },
+  socialIcons: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: theme.spacing(2),
+  },
+  iconButton: {
+    margin: theme.spacing(1),
+    '&:hover': {
+      transform: 'scale(1.2)',
+      transition: 'transform 0.3s ease-in-out',
+    },
+  },
 }));
 
 const HomePage: React.FC = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
@@ -204,7 +275,7 @@ const HomePage: React.FC = () => {
   const handleCloseRegister = () => setOpenRegister(false);
 
   const handleLoginSubmit = async () => {
-    const response = await fetch('/api/v1/user/login', {
+    const response = await fetch('http://localhost:5000/api/v1/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -217,17 +288,31 @@ const HomePage: React.FC = () => {
   };
 
   const handleRegisterSubmit = async () => {
-    const response = await fetch('/api/v1/user/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(registerForm),
-    });
-    const data = await response.json();
-    console.log(data);
-    setOpenRegister(false);
-  };
+    try {
+      console.log("Submit button clicked");
+      console.log("registerForm state: ", registerForm);
+      
+      const response = await fetch('http://localhost:5000/api/v1/user/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registerForm),
+      });
+  
+      if (!response.ok) {
+        console.log("There was an error with the fetch request", response);
+        return;
+      }
+      
+      const data = await response.json();
+      console.log("Response data from the server: ", data);
+      
+      setOpenRegister(false);
+    } catch (err) {
+      console.log("There was an error in handleRegisterSubmit: ", err);
+    }
+  };  
 
   const handleSpecialtyChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setSelectedSpecialty(event.target.value as string);
@@ -253,32 +338,34 @@ const HomePage: React.FC = () => {
           <Grid container alignItems="center" justifyContent="space-between">
             <Grid item xs>
               <Typography variant="h4" align="left" color="inherit" component="h1">
-                Welcome to DocMatch
+                Welcome to Doc-Match
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant="outlined" className={classes.headerButton} onClick={handleOpenLogin}>Login</Button>
-              <Button variant="outlined" className={classes.headerButton} onClick={handleOpenRegister}>Register</Button>
+              <Box display="flex" flexDirection="column" alignItems="center">
+                <Box mb={2}>
+                  <Button variant="outlined" className={`${classes.headerButton} ${classes.blueButton}`} onClick={handleOpenLogin}>Login</Button>
+                  <Button variant="outlined" className={`${classes.headerButton} ${classes.blueButton}`} onClick={handleOpenRegister}>Register</Button>
+                </Box>
+                <Typography variant="body2" color="primary" style={{ marginTop: '-8px' }}>For Appointments</Typography>
+              </Box>
             </Grid>
           </Grid>
         </Container>
       </header>
       <main>
         <section className={classes.intro}>
-          <Container maxWidth="sm">
-            <Typography variant="h6" color="inherit" gutterBottom component="h2">
-              User-friendly platform that helps immigrants/tourists find nearby hospitals and doctors
-            </Typography>
-            <Typography variant="body1" color="inherit" gutterBottom>
-              Find healthcare providers based on your preferred language and area of specialization.
-            </Typography>
+          <Container maxWidth="lg">
+          <Typography variant="subtitle1" color="textPrimary" gutterBottom className={`${classes.boldText} ${classes.largeFont}`}>
+            Discover nearby healthcare providers that cater to your language preferences and medical needs.
+          </Typography>
           </Container>
         </section>
         <section className={classes.searchBar}>
           <Container maxWidth="md">
             <div className={classes.searchInputs}>
               <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="specialty">Specialty</InputLabel>
+                <InputLabel className={classes.inputLabel} htmlFor="specialty">Specialty</InputLabel>
                 <Select
                   id="specialty"
                   value={selectedSpecialty}
@@ -291,15 +378,15 @@ const HomePage: React.FC = () => {
                 </Select>
               </FormControl>
               <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="location">Location</InputLabel>
                 <TextField
                   id="location"
+                  label="Location"
                   value={selectedLocation}
                   onChange={handleLocationChange}
                 />
               </FormControl>
               <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="language">Language</InputLabel>
+                <InputLabel className={classes.inputLabel} htmlFor="language">Language</InputLabel>
                 <Select
                   id="language"
                   multiple
@@ -363,6 +450,19 @@ const HomePage: React.FC = () => {
             </Grid>
           </Container>
         </section>
+        <section className={classes.blog}>
+          <Container maxWidth="lg">
+            <Typography variant="h5" color="inherit" gutterBottom component="h2" className={classes.sectionTitle}>
+              Latest Blogs
+            </Typography>
+            <BlogList />
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
+              <Button variant="outlined" color="primary" onClick={() => navigate('/blogs')}>
+                View All Blogs
+              </Button>
+            </div>
+          </Container>
+        </section>
         <section className={classes.cta}>
           <Container maxWidth="sm">
             <Typography variant="h6" color="inherit" gutterBottom component="h2">
@@ -371,6 +471,23 @@ const HomePage: React.FC = () => {
             <Button variant="contained" color="primary" className={classes.ctaButton}>
               Explore Providers
             </Button>
+            <div className={classes.socialIcons}>
+              <IconButton href="http://facebook.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                <FacebookIcon />
+              </IconButton>
+              <IconButton href="http://twitter.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                <TwitterIcon />
+              </IconButton>
+              <IconButton href="http://instagram.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                <InstagramIcon />
+              </IconButton>
+              <IconButton href="http://github.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                <GitHubIcon />
+              </IconButton>
+              <IconButton href="mailto:yourEmail@example.com" className={classes.iconButton} color="primary">
+                <EmailIcon />
+              </IconButton>
+            </div>
           </Container>
         </section>
       </main>
