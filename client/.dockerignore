@@ -1,0 +1,13 @@
+# Ignore node_modules, as they will be reinstalled in the Docker image
+node_modules
+
+# Ignore git and Docker files
+.git
+.dockerignore
+Dockerfile
+
+# Ignore log files
+*.log
+
+# Ignore any local environment configuration
+.env
