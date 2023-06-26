@@ -20,10 +20,10 @@ class DoctorController {
       const service = new DoctorService();
 
       // Extract address details from the request
-      const { postcode, street, city, state, country } = req.body.address;
+      const { street, city, state, postcode, country } = req.body.address;
 
       // Create the address string
-      const addressString = `${postcode}, ${street}, ${city},  ${state}, ${country}`;
+      const addressString = `${street}, ${city},  ${state}, ${postcode}, ${country}`;
 
       const params = {
         access_key: `${process.env.ACCESS_KEY}`,
