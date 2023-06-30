@@ -2,10 +2,12 @@ import { Request, Response } from "express";
 import axios from "axios";
 import dotenv from "dotenv";
 import DoctorService from "../services/doctors";
+import userRouter from "../routes/users";
 
 
 dotenv.config();
 const config = process.env;
+
 
 
 class DoctorController {
@@ -61,23 +63,40 @@ class DoctorController {
    */
   async get(req: Request, res: Response, next: any) {
     try {
-      let limit: number = 20;
-      let skip: number = 0;
+      // let limit: number = 20;
+      // let skip: number = 0;
+      
 
-      if (req.query.limit) {
-        limit = Number(req.query.limit);
-      }
-      if (req.query.skip) {
-        skip = Number(req.query.limit);
+      // if (req.query.limit) {
+      //   limit = Number(req.query.limit);
+      // }
+      // if (req.query.skip) {
+      //   skip = Number(req.query.limit);
+      // }
+
+      const {latitude, longitude, radius} = req.query
+      
+      //parse the radius value as a number
+      const radiusInMeters = parseInt(radius as string)* 1000
+
+      //create a a geoJSON point for the users location
+      const userLocation = {
+        type: "Point",
+        coordinates: [
+          parseFloat(longitude as string),
+          parseFloat(latitude as string)
+        ]
       }
 
       const service = new DoctorService();
-      const doctor = await service.get(limit, skip);
-      res.status(200).json(doctor);
+      const doctors = await service.findNearbyDoctors(userLocation, radiusInMeters, );
+      res.status(200).json(doctors);
     } catch (error) {
       next(error);
     }
   }
+
+  
 
   /**
    * get doctor by id
