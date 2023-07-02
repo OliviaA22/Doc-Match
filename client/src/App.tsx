@@ -7,6 +7,9 @@ import UserProfile from './pages/UserProfile';
 import LoginPage from './pages/LoginPage';
 import SearchResultsPage from './pages/SearchResultsPage';
 import BlogList from './pages/BlogList';
+import DoctorList from './pages/DoctorList';
+import NewDoctor from './components/NewDoctor';
+import EditDoctor from './components/EditDoctor';
 
 const App: React.FC = () => {
     return (
@@ -19,6 +22,9 @@ const App: React.FC = () => {
                 <Route path="/search" element={<SearchResultsPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/blogs" element={<BlogList />} />
+                <Route path="/doctor" element={<DoctorList />} />
+                <Route path="/new" element={<NewDoctor />} />
+                <Route path="/edit/:id" element={<EditDoctor />} />
             </Routes>
         </Router>
     );

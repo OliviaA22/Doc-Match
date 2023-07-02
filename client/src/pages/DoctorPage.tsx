@@ -1,7 +1,7 @@
-// BookingPage.tsx
+// DoctorPage.tsx
 import React from 'react';
 
-const BookingPage = () => {
+const DoctorPage = () => {
   return (
     <div>
       {/* Content to be added later */}
@@ -9,4 +9,4 @@ const BookingPage = () => {
   );
 };
 
-export default BookingPage;
+export default DoctorPage;

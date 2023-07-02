@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  Button,
-  Container,
-  Grid,
-  Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  TextField,
-  DialogActions,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
+  Button, Container,
+  Grid, Typography,
+  Dialog, DialogTitle,
+  DialogContent, TextField,
+  DialogActions, Select,
+  Menu, MenuItem,
+  FormControl, InputLabel,
+  ListItem, ListItemText, List,
   Box
 } from '@material-ui/core';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { Link } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import SearchIcon from '@material-ui/icons/Search';
@@ -29,6 +25,12 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import EmailIcon from '@material-ui/icons/Email';
+import MenuIcon from '@material-ui/icons/Menu';
+import MyCalendar from '../components/MyCalendar';
+import MyMap from '../components/MyMap';
+import AppointmentBooking from '../components/AppointmentBooking';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
   cta: {
     padding: theme.spacing(6, 3),
     textAlign: 'center',
+    backgroundColor: '#abcdef',
   },
   ctaButton: {
     color: '#fff',
@@ -90,6 +93,20 @@ const useStyles = makeStyles((theme) => ({
     borderColor: '#fff',
     '&:hover': {
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    },
+  },
+  loginButton: {
+    backgroundColor: '#4caf50',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#388e3c',
+    },
+  },
+  registerButton: {
+    backgroundColor: '#f50057',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#c51162',
     },
   },
   formField: {
@@ -189,6 +206,14 @@ const useStyles = makeStyles((theme) => ({
       transition: 'transform 0.3s ease-in-out',
     },
   },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+    minWidth: 120,
+    backgroundColor: theme.palette.background.paper,
+    border: '1px solid #ced4da',
+    borderRadius: 4,
+    padding: '10px 26px 10px 12px',
+  },
 }));
 
 const HomePage: React.FC = () => {
@@ -200,8 +225,26 @@ const HomePage: React.FC = () => {
   const [selectedSpecialty, setSelectedSpecialty] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
+  const [openSpecialisationDialog, setOpenSpecialisationDialog] = useState(false);
+  const [appointmentDialogOpen, setAppointmentDialogOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  const [loginForm, setLoginForm] = useState({ email: '', password: '' });
+  const openAppointmentDialog = () => {
+    setAppointmentDialogOpen(true);
+  };
+
+  const closeAppointmentDialog = () => {
+    setAppointmentDialogOpen(false);
+  };
+
+  const handleCloseSpecialisationDialog = () => {
+    setOpenSpecialisationDialog(false);
+  };
+  const handleOpenSpecialisationDialog = () => {
+    setOpenSpecialisationDialog(true);
+  };
+
+  const [loginForm, setLoginForm] = useState({ email: '', password: '', username: '' });
   const [registerForm, setRegisterForm] = useState<{
     firstName: string;
     lastName: string;
@@ -275,17 +318,26 @@ const HomePage: React.FC = () => {
   const handleCloseRegister = () => setOpenRegister(false);
 
   const handleLoginSubmit = async () => {
-    const response = await fetch('http://localhost:5000/api/v1/user/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginForm),
-    });
-    const data = await response.json();
-    console.log(data);
-    setOpenLogin(false);
+    if (isAdmin) {
+      if(loginForm.username === 'admin' && loginForm.password === '1234') {
+        navigate('/doctor');
+      } else {
+        alert(`Invalid username or password`);
+      }
+    } else {
+      const response = await fetch('http://localhost:5000/api/v1/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(loginForm),
+      });
+      const data = await response.json();
+      console.log(data);
+      setOpenLogin(false);
+    }
   };
+  
 
   const handleRegisterSubmit = async () => {
     try {
@@ -328,8 +380,31 @@ const HomePage: React.FC = () => {
 
   const handleSearch = () => {
     // Perform search based on selectedSpecialty, selectedLocation, and selectedLanguages
-    // Update your search results accordingly
+    navigate('/search');
   };
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [language, setLanguage] = useState('English');
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLanguageChange = (language: string) => {
+    const fakeEvent = {
+      target: {
+        value: language,
+      },
+    } as React.ChangeEvent<{ value: unknown }>;
+  
+    setLanguage(fakeEvent.target.value as string);
+  };  
+
+  const doctorId = 'doctor-id';
 
   return (
     <div className={classes.root}>
@@ -342,13 +417,44 @@ const HomePage: React.FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <Box display="flex" flexDirection="column" alignItems="center">
-                <Box mb={2}>
-                  <Button variant="outlined" className={`${classes.headerButton} ${classes.blueButton}`} onClick={handleOpenLogin}>Login</Button>
-                  <Button variant="outlined" className={`${classes.headerButton} ${classes.blueButton}`} onClick={handleOpenRegister}>Register</Button>
+              <Box display="flex" flexDirection="row" alignItems="center">
+                <IconButton aria-label="menu" onClick={handleClick} className={classes.iconButton}>
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleOpenSpecialisationDialog}>Specialisation</MenuItem>
+                  <MenuItem onClick={handleClose}>Help & Support</MenuItem>
+                  <MenuItem onClick={handleClose}>Health Blog/News</MenuItem>
+                </Menu>
+                <Box ml={2}>
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => handleLanguageChange('English')}
+                  >
+                    EN
+                  </Link>
+                  <Typography variant="body2" style={{ display: 'inline', margin: '0 5px' }}>
+                    |
+                  </Typography>
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => handleLanguageChange('German')}
+                  >
+                    DE
+                  </Link>
                 </Box>
-                <Typography variant="body2" color="primary" style={{ marginTop: '-8px' }}>For Appointments</Typography>
+                <Button variant="contained" className={`${classes.headerButton} ${classes.loginButton}`} onClick={handleOpenLogin}>Login</Button>
+                <Button variant="contained" className={`${classes.headerButton} ${classes.registerButton}`} onClick={handleOpenRegister}>Register</Button>
               </Box>
+              <Typography variant="body2" color="primary" align="right" style={{ marginTop: '-8px' }}>For Appointments</Typography>
             </Grid>
           </Grid>
         </Container>
@@ -437,7 +543,7 @@ const HomePage: React.FC = () => {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <div className={classes.feature}>
+                <div className={classes.feature} onClick={openAppointmentDialog}>
                   <EventAvailableIcon className={classes.featureIcon} />
                   <Typography variant="h6" color="primary" gutterBottom component="h3">
                     Easy Appointment Booking
@@ -464,32 +570,42 @@ const HomePage: React.FC = () => {
           </Container>
         </section>
         <section className={classes.cta}>
-          <Container maxWidth="sm">
-            <Typography variant="h6" color="inherit" gutterBottom component="h2">
-              Start Your Healthcare Journey
-            </Typography>
-            <Button variant="contained" color="primary" className={classes.ctaButton}>
-              Explore Providers
-            </Button>
-            <div className={classes.socialIcons}>
-              <IconButton href="http://facebook.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                <FacebookIcon />
-              </IconButton>
-              <IconButton href="http://twitter.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                <TwitterIcon />
-              </IconButton>
-              <IconButton href="http://instagram.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                <InstagramIcon />
-              </IconButton>
-              <IconButton href="http://github.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                <GitHubIcon />
-              </IconButton>
-              <IconButton href="mailto:yourEmail@example.com" className={classes.iconButton} color="primary">
-                <EmailIcon />
-              </IconButton>
-            </div>
-          </Container>
-        </section>
+        <Container maxWidth="lg">
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={4}>
+            <MyCalendar />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Typography variant="h6" color="inherit" gutterBottom component="h2">
+                Start Your Healthcare Journey
+              </Typography>
+              <Button variant="contained" color="primary" className={classes.ctaButton}>
+                Explore Providers
+              </Button>
+              <div className={classes.socialIcons}>
+                <IconButton href="http://facebook.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton href="http://twitter.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                  <TwitterIcon />
+                </IconButton>
+                <IconButton href="http://instagram.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton href="http://github.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton href="mailto:yourEmail@example.com" className={classes.iconButton} color="primary">
+                  <EmailIcon />
+                </IconButton>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+            <MyMap />
+            </Grid>
+          </Grid>
+        </Container>
+      </section>
       </main>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
@@ -502,8 +618,16 @@ const HomePage: React.FC = () => {
       <Dialog open={openLogin} onClose={handleCloseLogin}>
         <DialogTitle>Login</DialogTitle>
         <DialogContent>
-          <TextField autoFocus margin="dense" id="name" label="Username" type="text" name="email" onChange={handleLoginFormChange} fullWidth  />
+          {isAdmin && (
+            <TextField autoFocus margin="dense" id="name" label="Username" type="text" name="username" onChange={handleLoginFormChange} fullWidth  />
+          )}
           <TextField margin="dense" id="password" label="Password" type="password" name="password" onChange={handleLoginFormChange} fullWidth />
+          <FormControlLabel
+            control={
+              <Checkbox checked={isAdmin} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setIsAdmin(event.target.checked)} name="adminCheckbox" />
+            }
+            label="Log in as admin"
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseLogin} color="primary" variant="outlined">
@@ -630,6 +754,118 @@ const HomePage: React.FC = () => {
             Submit
           </Button>
         </DialogActions>
+      </Dialog>
+      <Dialog
+      open={openSpecialisationDialog}
+      onClose={handleCloseSpecialisationDialog}
+      aria-labelledby="specialisation-dialog-title"
+      aria-describedby="specialisation-dialog-description"
+    >
+      <DialogTitle id="specialisation-dialog-title">{"Medical Specialisations"}</DialogTitle>
+      <DialogContent>
+        <List>
+          <ListItem>
+            <ListItemText primary="Cardiology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Dermatology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Endocrinology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Gastroenterology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Hematology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Infectious Disease"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Nephrology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Oncology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Pulmonology"/>
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="Rheumatology"/>
+          </ListItem>
+          <ListItem>
+      <ListItemText primary="Neurology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Orthopedics"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Ophthalmology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Pediatrics"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Psychiatry"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Radiology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Surgery"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Urology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Obstetrics and Gynecology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Pathology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Physical Medicine and Rehabilitation"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Preventive Medicine"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Anesthesiology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Allergy and Immunology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Otolaryngology"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Pain Medicine"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Sports Medicine"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Geriatrics"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Nuclear Medicine"/>
+    </ListItem>
+    <ListItem>
+      <ListItemText primary="Sleep Medicine"/>
+    </ListItem>
+        </List>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleCloseSpecialisationDialog} color="primary">
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
+    <Dialog open={appointmentDialogOpen} onClose={closeAppointmentDialog}>
+        <DialogContent>
+          <AppointmentBooking doctorId={doctorId} />
+        </DialogContent>
       </Dialog>
     </div>
   );  

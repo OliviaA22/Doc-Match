@@ -9,13 +9,34 @@ interface BlogPostType {
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState<BlogPostType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("/api/v1/blog")
-      .then(response => response.json())
-      .then(data => setBlogs(data))
-      .catch(error => console.error(error));
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Something went wrong while fetching the blogs");
+        }
+        return response.json();
+      })
+      .then(data => {
+        setBlogs(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error.message);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div>
