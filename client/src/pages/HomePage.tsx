@@ -34,6 +34,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import logo from '../assets/logo.jpg';
 import aboutImage from '../assets/about.jpg';
+import abtImage from '../assets/abt.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 'auto',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+  },
+  abtImage: {
+    width: '20%',
+    height: 'auto',
   },
   features: {
     padding: theme.spacing(3),
@@ -616,30 +621,34 @@ const HomePage: React.FC = () => {
       </header>
       <main>
       <section className={classes.intro}>
-          <Container maxWidth="md">
-            <Grid container spacing={3}>
-              <Grid item md={6} xs={12}>
-                <Fade bottom>
-                  <img src={aboutImage} alt="About Us" className={classes.aboutImage} />
-                </Fade>
-              </Grid>
-              <Grid item md={6} xs={12}>
-                <Fade bottom>
-                  <Typography variant="h4" color="inherit" component="h2" className={classes.introText}>
-                    Welcome to Doc-Match
-                  </Typography>
-                </Fade>
-                <Fade bottom delay={300}>
-                  <Typography variant="body1" color="inherit" className={classes.introDescription}>
-                    We seek to develop an accessible app designed especially for immigrants, tourists, and the LGBTQ+ community
-                    individuals, which helps them find medical care that’s compatible with their needs when it comes to language barriers and discrimination.
-                    Facilitate access to healthcare services for immigrants/tourists through personalized and language-specific recommendations.
-                  </Typography>
-                </Fade>
-              </Grid>
-            </Grid>
-          </Container>
-        </section>
+  <Container maxWidth="md">
+    <Grid container spacing={3} alignItems="center">
+      <Grid item md={6} xs={12}>
+        <Fade bottom>
+          <img src={aboutImage} alt="About Us" className={classes.aboutImage} />
+        </Fade>
+      </Grid>
+      <Grid item md={6} xs={12}>
+        <Fade bottom>
+          <Typography variant="h4" color="inherit" component="h2" className={classes.introText}>
+            Welcome to Doc-Match
+          </Typography>
+        </Fade>
+        <Fade bottom delay={300}>
+          <Typography variant="body1" color="inherit" className={classes.introDescription}>
+            We seek to develop an accessible app designed especially for immigrants, tourists, and the LGBTQ+ community individuals, which helps them find medical care that’s compatible with their needs when it comes to language barriers and discrimination. Facilitate access to healthcare services for immigrants/tourists through personalized and language-specific recommendations.
+          </Typography>
+        </Fade>
+      </Grid>
+      <Grid item md={6} xs={12}>
+        <Fade bottom>
+          <img src={abtImage} alt="About Us" className={classes.abtImage} />
+        </Fade>
+      </Grid>
+    </Grid>
+  </Container>
+</section>
+
         <section className={classes.searchBar}>
           <Container maxWidth="md">
             <div className={classes.searchInputs}>

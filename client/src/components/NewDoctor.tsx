@@ -41,16 +41,30 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${docImage})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    color: '#444',
   },
   card: {
-    maxWidth: 400,
+    maxWidth: 800,  // Increase the max width for a more professional feel
+    padding: theme.spacing(5),  // Add padding inside the card
     margin: '0 auto',
+    borderRadius: '15px', // Smooth the card edges
+    backgroundColor: '#f5f5f5', // Change card color to light grey
+    boxShadow: '0 2px 10px 0 rgba(0,0,0,0.16)', // Add shadow to the card for 3D effect
   },
   formControl: {
     minWidth: '100%',
+    marginBottom: theme.spacing(2), // Add spacing between form fields
   },
   button: {
     marginTop: theme.spacing(2),
+    backgroundColor: '#3f51b5', // Change button color to deep purple
+    color: '#fff', // Change button text color to white
+    '&:hover': {
+      backgroundColor: '#303f9f', // Darken button when hovered over
+    },
+  },
+  formTitle: {
+    marginBottom: theme.spacing(4), // Add bottom margin to form title
   },
 }));
 
@@ -99,7 +113,7 @@ const NewDoctor = () => {
     <div className={classes.root}>
       <Card className={classes.card}>
         <CardContent>
-          <Typography variant="h5" component="h2" gutterBottom>
+          <Typography variant="h5" component="h2" gutterBottom className={classes.formTitle}>
             Add New Doctor
           </Typography>
           <form onSubmit={handleFormSubmit}>
@@ -161,9 +175,9 @@ const NewDoctor = () => {
                 </FormControl>
               </Grid>
               <Grid item xs={12}>
-                <Button type="submit" variant="contained" color="primary" className={classes.button} fullWidth>
-                  Add Doctor
-                </Button>
+                <Button type="submit" variant="contained" className={classes.button} fullWidth>
+                Add Doctor
+              </Button>
               </Grid>
             </Grid>
           </form>
