@@ -9,13 +9,25 @@ class DoctorService {
     return doctor;
   }
 
-  async get(limit = 20, skip = 0) {
-    const doctor = await Doctor.find()
-      .sort({ createdAt: -1 })
-      .limit(limit)
-      .skip(skip);
-    return doctor;
-  }
+  // async get(limit = 20, skip = 0) {
+  //   const doctor = await Doctor.find()
+  //     .sort({ createdAt: -1 })
+  //     .limit(limit)
+  //     .skip(skip);
+  //   return doctor;
+  // }
+
+  async findNearbyDoctors(location: any, radius:any){
+    const doctors = await Doctor.find({
+      "address.location":{
+        $near: {
+          $geometry: location,
+          $maxDistance: radius,
+        },
+      }
+    }).exec();
+    return doctors
+  };
 
   async getById(id: string) {
     const doctor = await Doctor.findById(id);
