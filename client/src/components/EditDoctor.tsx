@@ -1,10 +1,10 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-type IDoctor = {
+export type IDoctor = {
   _id?: string;
   title: string;
   firstName: string;
@@ -35,21 +35,20 @@ const EditDoctor: React.FC = () => {
     }, [id]);
   
     const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const fieldName = event.target.name;
-        const fieldValue = event.target.value;
-      
-        setDoctor(prevState => ({
+      const fieldName = event.target.name;
+      const fieldValue = event.target.value;
+      if (fieldName.startsWith('address.')) {
+        setDoctor(prevState => prevState ? {
           ...prevState,
-          // Special handling for nested fields
-          ...(fieldName.startsWith('address.') && {
-            address: {
-              ...(prevState?.address),
-              [fieldName.split('.')[1]]: fieldValue
-            }
-          }),
-          [fieldName]: fieldValue
-        }));
-      };
+          address: {
+            ...prevState.address,
+            [fieldName.split('.')[1]]: fieldValue
+          }
+        } : null);
+      } else {
+        setDoctor(prevState => prevState ? { ...prevState, [fieldName]: fieldValue } : null);
+      }
+    };    
   
     const handleFormSubmit = (event: React.FormEvent) => {
       event.preventDefault();

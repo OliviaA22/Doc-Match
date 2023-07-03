@@ -14,8 +14,27 @@ import {
   TextField,
 } from '@material-ui/core';
 
-interface AppointmentBookingProps {
-  doctorId: string;
+interface IAddress {
+  street: string;
+  city: string;
+  postcode: number;
+  state: string;
+  country: string;
+  location: {
+    type: string;
+    coordinates: number[];
+  }
+}
+
+interface IDoctor {
+  _id: string;
+  title: string;
+  firstName: string;
+  lastName: string;
+  address: IAddress;
+  language: string[];
+  specialisation: string[];
+  createdAt?: Date;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -27,9 +46,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppointmentBooking: React.FC<AppointmentBookingProps> = ({ doctorId }) => {
+const AppointmentBooking: React.FC = () => {
   const classes = useStyles();
   const [availableTimeSlots, setAvailableTimeSlots] = useState<string[]>([]);
+  const [doctors, setDoctors] = useState<IDoctor[]>([]); 
+  const [selectedDoctor, setSelectedDoctor] = useState<string>(''); 
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>('');
   const [patientName, setPatientName] = useState<string>('');
   const [issueDescription, setIssueDescription] = useState<string>('');
@@ -37,18 +58,34 @@ const AppointmentBooking: React.FC<AppointmentBookingProps> = ({ doctorId }) => 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAvailableTimeSlots = async () => {
-      try {
-        const response = await fetch(`/api/doctors/${doctorId}/time-slots`);
-        const data = await response.json();
-        setAvailableTimeSlots(data.timeSlots);
-      } catch (error) {
-        console.error('Error fetching available time slots:', error);
-      }
-    };
+    fetchDoctors();
+  }, []);
 
-    fetchAvailableTimeSlots();
-  }, [doctorId]);
+  const fetchDoctors = async () => {
+    try {
+      const response = await fetch(`/api/doctors`);
+      const data = await response.json();
+      setDoctors(data.doctors);
+    } catch (error) {
+      console.error('Error fetching doctors:', error);
+    }
+  };
+
+  const handleDoctorChange = (event: ChangeEvent<{ value: unknown }>) => {
+    const doctorId = event.target.value as string;
+    setSelectedDoctor(doctorId);
+    fetchAvailableTimeSlots(doctorId);
+  };
+
+  const fetchAvailableTimeSlots = async (doctorId: string) => {
+    try {
+      const response = await fetch(`/api/doctors/${doctorId}/time-slots`);
+      const data = await response.json();
+      setAvailableTimeSlots(data.timeSlots);
+    } catch (error) {
+      console.error('Error fetching available time slots:', error);
+    }
+  };
 
   const handleTimeSlotChange = (event: ChangeEvent<{ value: unknown }>) => {
     setSelectedTimeSlot(event.target.value as string);
@@ -65,13 +102,13 @@ const AppointmentBooking: React.FC<AppointmentBookingProps> = ({ doctorId }) => 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!selectedTimeSlot || !patientName || !issueDescription) {
+    if (!selectedDoctor || !selectedTimeSlot || !patientName || !issueDescription) {
       setFormError(true);
       return;
     }
 
     try {
-      const response = await fetch(`/api/doctors/${doctorId}/book-appointment`, {
+      const response = await fetch(`/api/doctors/${selectedDoctor}/book-appointment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,11 +124,9 @@ const AppointmentBooking: React.FC<AppointmentBookingProps> = ({ doctorId }) => 
         navigate("/confirmation");
       } else {
         console.error('Error booking appointment:', response);
-        // Show an error message to the user
       }
     } catch (error) {
       console.error('Error booking appointment:', error);
-      // Show an error message to the user
     }
   };
 
@@ -104,6 +139,29 @@ const AppointmentBooking: React.FC<AppointmentBookingProps> = ({ doctorId }) => 
         Please provide your details and select a time slot for your appointment.
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
+        <FormControl
+          required
+          fullWidth
+          variant="filled"
+          error={formError && !selectedDoctor}
+        >
+          <InputLabel id="select-doctor-label">Select a doctor</InputLabel>
+          <Select
+            labelId="select-doctor-label"
+            id="select-doctor"
+            value={selectedDoctor}
+            onChange={handleDoctorChange}
+          >
+            {doctors.map((doctor) => (
+              <MenuItem key={doctor._id} value={doctor._id}>
+                {doctor.title} {doctor.firstName} {doctor.lastName}
+              </MenuItem>
+            ))}
+          </Select>
+          {formError && !selectedDoctor && (
+            <FormHelperText>Please select a doctor</FormHelperText>
+          )}
+        </FormControl>
         <TextField
           required
           id="patient-name"

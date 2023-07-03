@@ -11,6 +11,7 @@ import {
   ListItem, ListItemText, List,
   Box
 } from '@material-ui/core';
+import { Fade } from 'react-reveal';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { Link } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
@@ -31,6 +32,9 @@ import MyMap from '../components/MyMap';
 import AppointmentBooking from '../components/AppointmentBooking';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import logo from '../assets/logo.jpg';
+import aboutImage from '../assets/about.jpg';
+import abtImage from '../assets/abt.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,17 +46,54 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   header: {
-    background: 'radial-gradient(circle at center, white 0%, #89CFF0 40%, #CCCCCC 60%)',
+    background: 'radial-gradient(circle at center, white 0%, #001f3f 40%, #000000 60%)',
     padding: theme.spacing(3),
     color: 'black',
+  },
+  logo: {
+    width: '100px',
+    height: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '150px',
+    },
   },
   intro: {
     padding: theme.spacing(6, 3),
     textAlign: 'center',
-    color: '#ffffff',
+    color: 'black',
+    background: 'linear-gradient(to bottom, #89CFF0, #CCCCCC)',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+    borderRadius: theme.spacing(1),
+    marginTop: theme.spacing(3),
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  introText: {
+    fontWeight: 'bold',
+    fontSize: '2rem',
+    textTransform: 'uppercase',
+    marginBottom: theme.spacing(2),
+    color: 'black',
+  },
+  introDescription: {
+    fontSize: '1.2rem',
+    lineHeight: '1.5',
+    color: 'black',
+  },
+  aboutImage: {
+    width: '100%',
+    height: 'auto',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+  },
+  abtImage: {
+    width: '20%',
+    height: 'auto',
   },
   features: {
     padding: theme.spacing(3),
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: theme.spacing(3),
   },
   feature: {
     textAlign: 'center',
@@ -60,9 +101,11 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid #e0e0e0',
     borderRadius: theme.spacing(1),
     padding: theme.spacing(2),
-    transition: 'background-color 0.3s ease',
+    transition: 'all 0.3s ease',
     '&:hover': {
-      backgroundColor: '#f5f5f5',
+      transform: 'scale(1.05)',
+      backgroundColor: '#b3e5fc',
+      color: '#fff',
     },
     backdropFilter: 'blur(5px)',
     background: 'rgba(255, 255, 255, 0.8)',
@@ -72,11 +115,16 @@ const useStyles = makeStyles((theme) => ({
     height: 80,
     marginBottom: theme.spacing(2),
     color: theme.palette.primary.main,
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      transform: 'rotate(360deg)',
+    },
   },
   cta: {
     padding: theme.spacing(6, 3),
     textAlign: 'center',
     backgroundColor: '#abcdef',
+    marginTop: theme.spacing(3),
   },
   ctaButton: {
     color: '#fff',
@@ -86,11 +134,18 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     padding: theme.spacing(2),
     fontSize: 14,
+    marginTop: theme.spacing(3),
   },
   headerButton: {
     marginLeft: theme.spacing(1),
     color: '#fff',
     borderColor: '#fff',
+    padding: '6px 12px',
+    fontSize: '0.75rem',
+    [theme.breakpoints.up('sm')]: {
+      padding: '8px 16px',
+      fontSize: '0.875rem',
+    },
     '&:hover': {
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
     },
@@ -98,6 +153,12 @@ const useStyles = makeStyles((theme) => ({
   loginButton: {
     backgroundColor: '#4caf50',
     color: '#fff',
+    padding: '6px 12px',
+    fontSize: '0.75rem',
+    [theme.breakpoints.up('sm')]: {
+      padding: '8px 16px',
+      fontSize: '0.875rem',
+    },
     '&:hover': {
       backgroundColor: '#388e3c',
     },
@@ -109,8 +170,14 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#c51162',
     },
   },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   formField: {
-    marginBottom: theme.spacing(2),
+    width: '100%',
+    marginBottom: theme.spacing(3),
   },
   labelNoDecoration: {
     textDecoration: 'none',
@@ -128,16 +195,24 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'underline',
     transition: 'color 0.3s',
   },
+  whiteIcon: {
+    color: 'white',
+  },  
   searchBar: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
-    padding: theme.spacing(4, 2),
+    width: '98%',
+    padding: theme.spacing(2),
     color: '#ffffff',
-    background: 'rgba(255, 255, 255, 0.3)',
-    backdropFilter: 'blur(25px)', 
+    background: '#406E85',
+    backdropFilter: 'blur(25px)',
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(4, 2),
+    },
+    marginTop: theme.spacing(3),
+    borderRadius: theme.spacing(1),
   },
   searchSection: {
     background: 'rgba(255, 255, 255, 0.8)',
@@ -147,20 +222,35 @@ const useStyles = makeStyles((theme) => ({
     backdropFilter: 'blur(5px)',
     maxWidth: 400,
     margin: '0 auto',
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(3),
+    },
   },
   searchInputs: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
     gap: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
   },
   formControl: {
-    marginRight: theme.spacing(2),
+    margin: theme.spacing(1),
     minWidth: 200,
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(1, 2),
+      minWidth: 220,
+    },
   },
   searchButton: {
-    marginLeft: theme.spacing(2),
+    margin: theme.spacing(1),
     minWidth: '100px',
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(1, 2),
+      minWidth: '120px',
+    },
   },
   blueButton: {
     color: 'blue',
@@ -200,10 +290,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   iconButton: {
+    color: 'blue',
     margin: theme.spacing(1),
     '&:hover': {
       transform: 'scale(1.2)',
       transition: 'transform 0.3s ease-in-out',
+    },
+    padding: '6px',
+    [theme.breakpoints.up('sm')]: {
+      padding: '8px',
     },
   },
   selectEmpty: {
@@ -213,6 +308,44 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid #ced4da',
     borderRadius: 4,
     padding: '10px 26px 10px 12px',
+  },
+  appointmentsText: {
+    fontSize: '0.75rem',
+    marginTop: '-6px',
+    color: 'white', // Update the color to white
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '0.875rem',
+      marginTop: '-8px',
+    },
+  },
+  link: {
+    fontSize: '0.75rem',
+    margin: '0 5px',
+    color: 'white', // Update the color to white
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '0.875rem',
+      margin: '0 10px',
+    },
+  },
+  contactSection: {
+    padding: theme.spacing(4),
+    background: '#f0f0f0',
+    marginTop: theme.spacing(3),
+  },
+  contactTitle: {
+    marginBottom: theme.spacing(4),
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  submitButton: {
+    marginTop: theme.spacing(3),
+    width: '200px',
+    alignSelf: 'center',
+  },
+  callImage: {
+    width: '100%',
+    height: 'auto',
+    marginBottom: theme.spacing(2),
   },
 }));
 
@@ -404,6 +537,11 @@ const HomePage: React.FC = () => {
     setLanguage(fakeEvent.target.value as string);
   };  
 
+  const handleContactUsSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle contact us form submission
+  };
+
   const doctorId = 'doctor-id';
 
   return (
@@ -411,14 +549,16 @@ const HomePage: React.FC = () => {
       <header className={classes.header}>
         <Container maxWidth="lg">
           <Grid container alignItems="center" justifyContent="space-between">
-            <Grid item xs>
-              <Typography variant="h4" align="left" color="inherit" component="h1">
-                Welcome to Doc-Match
-              </Typography>
+            <Grid item xs={8} sm={4}>
+              <img src={logo} alt="Your Logo" className={classes.logo} />
             </Grid>
-            <Grid item>
-              <Box display="flex" flexDirection="row" alignItems="center">
-                <IconButton aria-label="menu" onClick={handleClick} className={classes.iconButton}>
+            <Grid item xs={4} sm={8}>
+              <Box display="flex" flexDirection="row" alignItems="center" justifyContent="flex-end">
+                <IconButton
+                  aria-label="menu"
+                  onClick={handleClick}
+                  className={`${classes.iconButton} ${classes.whiteIcon}`}
+                >
                   <MenuIcon />
                 </IconButton>
                 <Menu
@@ -428,6 +568,8 @@ const HomePage: React.FC = () => {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
+                  <MenuItem onClick={handleClose}>About</MenuItem>
+                  <MenuItem onClick={handleClose}>Contact Us</MenuItem>
                   <MenuItem onClick={handleOpenSpecialisationDialog}>Specialisation</MenuItem>
                   <MenuItem onClick={handleClose}>Help & Support</MenuItem>
                   <MenuItem onClick={handleClose}>Health Blog/News</MenuItem>
@@ -437,6 +579,7 @@ const HomePage: React.FC = () => {
                     component="button"
                     variant="body2"
                     onClick={() => handleLanguageChange('English')}
+                    className={classes.link}
                   >
                     EN
                   </Link>
@@ -447,26 +590,65 @@ const HomePage: React.FC = () => {
                     component="button"
                     variant="body2"
                     onClick={() => handleLanguageChange('German')}
+                    className={classes.link}
                   >
                     DE
                   </Link>
                 </Box>
-                <Button variant="contained" className={`${classes.headerButton} ${classes.loginButton}`} onClick={handleOpenLogin}>Login</Button>
-                <Button variant="contained" className={`${classes.headerButton} ${classes.registerButton}`} onClick={handleOpenRegister}>Register</Button>
+                <Box ml={2}>
+                  <Button
+                    variant="contained"
+                    className={`${classes.headerButton} ${classes.loginButton}`}
+                    onClick={handleOpenLogin}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    variant="contained"
+                    className={`${classes.headerButton} ${classes.registerButton}`}
+                    onClick={handleOpenRegister}
+                  >
+                    Register
+                  </Button>
+                </Box>
               </Box>
-              <Typography variant="body2" color="primary" align="right" style={{ marginTop: '-8px' }}>For Appointments</Typography>
+              <Typography variant="body2" color="textPrimary" align="right" className={classes.appointmentsText}>
+                For Appointments
+              </Typography>
             </Grid>
           </Grid>
         </Container>
       </header>
       <main>
-        <section className={classes.intro}>
-          <Container maxWidth="lg">
-          <Typography variant="subtitle1" color="textPrimary" gutterBottom className={`${classes.boldText} ${classes.largeFont}`}>
-            Discover nearby healthcare providers that cater to your language preferences and medical needs.
+      <section className={classes.intro}>
+  <Container maxWidth="md">
+    <Grid container spacing={3} alignItems="center">
+      <Grid item md={6} xs={12}>
+        <Fade bottom>
+          <img src={aboutImage} alt="About Us" className={classes.aboutImage} />
+        </Fade>
+      </Grid>
+      <Grid item md={6} xs={12}>
+        <Fade bottom>
+          <Typography variant="h4" color="inherit" component="h2" className={classes.introText}>
+            Welcome to Doc-Match
           </Typography>
-          </Container>
-        </section>
+        </Fade>
+        <Fade bottom delay={300}>
+          <Typography variant="body1" color="inherit" className={classes.introDescription}>
+            We seek to develop an accessible app designed especially for immigrants, tourists, and the LGBTQ+ community individuals, which helps them find medical care that’s compatible with their needs when it comes to language barriers and discrimination. Facilitate access to healthcare services for immigrants/tourists through personalized and language-specific recommendations.
+          </Typography>
+        </Fade>
+      </Grid>
+      <Grid item md={6} xs={12}>
+        <Fade bottom>
+          <img src={abtImage} alt="About Us" className={classes.abtImage} />
+        </Fade>
+      </Grid>
+    </Grid>
+  </Container>
+</section>
+
         <section className={classes.searchBar}>
           <Container maxWidth="md">
             <div className={classes.searchInputs}>
@@ -582,26 +764,95 @@ const HomePage: React.FC = () => {
               <Button variant="contained" color="primary" className={classes.ctaButton}>
                 Explore Providers
               </Button>
-              <div className={classes.socialIcons}>
-                <IconButton href="http://facebook.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                  <FacebookIcon />
-                </IconButton>
-                <IconButton href="http://twitter.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                  <TwitterIcon />
-                </IconButton>
-                <IconButton href="http://instagram.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                  <InstagramIcon />
-                </IconButton>
-                <IconButton href="http://github.com/yourProfile" target="_blank" rel="noopener noreferrer" className={classes.iconButton} color="primary">
-                  <GitHubIcon />
-                </IconButton>
-                <IconButton href="mailto:yourEmail@example.com" className={classes.iconButton} color="primary">
-                  <EmailIcon />
-                </IconButton>
-              </div>
             </Grid>
             <Grid item xs={12} sm={4}>
             <MyMap />
+            </Grid>
+          </Grid>
+        </Container>
+      </section>
+      <section className={classes.contactSection}>
+        <Container maxWidth="lg">
+          <Typography variant="h4" component="h2" className={classes.contactTitle}>
+            Contact Us
+          </Typography>
+          <Grid container justifyContent="center">
+            <Grid item xs={12} sm={8} md={6}>
+              <form className={classes.form} onSubmit={handleContactUsSubmit}>
+                <TextField
+                  variant="outlined"
+                  label="Name"
+                  name="name"
+                  className={classes.formField}
+                />
+                <TextField
+                  variant="outlined"
+                  label="Email"
+                  name="email"
+                  className={classes.formField}
+                />
+                <TextField
+                  variant="outlined"
+                  label="Message"
+                  name="message"
+                  multiline
+                  rows={6}
+                  className={classes.formField}
+                />
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className={classes.submitButton}
+                >
+                  Submit
+                </Button>
+                <div className={classes.socialIcons}>
+                  <IconButton
+                    href="http://facebook.com/yourProfile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={classes.iconButton}
+                    color="primary"
+                  >
+                    <FacebookIcon />
+                  </IconButton>
+                  <IconButton
+                    href="http://twitter.com/yourProfile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={classes.iconButton}
+                    color="primary"
+                  >
+                    <TwitterIcon />
+                  </IconButton>
+                  <IconButton
+                    href="http://instagram.com/yourProfile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={classes.iconButton}
+                    color="primary"
+                  >
+                    <InstagramIcon />
+                  </IconButton>
+                  <IconButton
+                    href="http://github.com/yourProfile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={classes.iconButton}
+                    color="primary"
+                  >
+                    <GitHubIcon />
+                  </IconButton>
+                  <IconButton
+                    href="mailto:yourEmail@example.com"
+                    className={classes.iconButton}
+                    color="primary"
+                  >
+                    <EmailIcon />
+                  </IconButton>
+                </div>
+              </form>
             </Grid>
           </Grid>
         </Container>
@@ -614,30 +865,29 @@ const HomePage: React.FC = () => {
           </Typography>
         </Container>
       </footer>
-      {/* Login Dialog */}
-      <Dialog open={openLogin} onClose={handleCloseLogin}>
-        <DialogTitle>Login</DialogTitle>
-        <DialogContent>
-          {isAdmin && (
-            <TextField autoFocus margin="dense" id="name" label="Username" type="text" name="username" onChange={handleLoginFormChange} fullWidth  />
-          )}
-          <TextField margin="dense" id="password" label="Password" type="password" name="password" onChange={handleLoginFormChange} fullWidth />
-          <FormControlLabel
-            control={
-              <Checkbox checked={isAdmin} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setIsAdmin(event.target.checked)} name="adminCheckbox" />
-            }
-            label="Log in as admin"
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseLogin} color="primary" variant="outlined">
-            Cancel
-          </Button>
-          <Button onClick={handleLoginSubmit} color="primary" variant="contained">
-            Submit
-          </Button>
-        </DialogActions>
-      </Dialog>
+{/* Login Dialog */}
+<Dialog open={openLogin} onClose={handleCloseLogin}>
+  <DialogTitle>Login</DialogTitle>
+  <DialogContent>
+    <TextField autoFocus margin="dense" id="name" label="Username" type="text" name="username" onChange={handleLoginFormChange} fullWidth />
+    <TextField margin="dense" id="password" label="Password" type="password" name="password" onChange={handleLoginFormChange} fullWidth />
+    <FormControlLabel
+      control={
+        <Checkbox checked={isAdmin} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setIsAdmin(event.target.checked)} name="adminCheckbox" />
+      }
+      label="Log in as admin"
+    />
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={handleCloseLogin} color="primary" variant="outlined">
+      Cancel
+    </Button>
+    <Button onClick={handleLoginSubmit} color="primary" variant="contained">
+      Submit
+    </Button>
+  </DialogActions>
+</Dialog>
+
       {/* Register Dialog */}
       <Dialog open={openRegister} onClose={handleCloseRegister}>
         <DialogTitle>Register</DialogTitle>
@@ -650,6 +900,7 @@ const HomePage: React.FC = () => {
               label="First Name"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={6}>
@@ -659,6 +910,7 @@ const HomePage: React.FC = () => {
               label="Last Name"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={12}>
@@ -668,6 +920,7 @@ const HomePage: React.FC = () => {
               label="Email"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
           </Grid>
             <Grid item xs={12}>
@@ -678,6 +931,7 @@ const HomePage: React.FC = () => {
               type="password"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={12}>
@@ -706,6 +960,7 @@ const HomePage: React.FC = () => {
               label="Street"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={6}>
@@ -715,6 +970,7 @@ const HomePage: React.FC = () => {
               label="City"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={6}>
@@ -724,6 +980,7 @@ const HomePage: React.FC = () => {
               label="Postcode"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={6}>
@@ -733,6 +990,7 @@ const HomePage: React.FC = () => {
               label="State"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
             <Grid item xs={6}>
@@ -742,6 +1000,7 @@ const HomePage: React.FC = () => {
               label="Country"
               onChange={handleRegisterFormChange}
               fullWidth
+              required
             />
             </Grid>
           </Grid>
@@ -864,7 +1123,7 @@ const HomePage: React.FC = () => {
     </Dialog>
     <Dialog open={appointmentDialogOpen} onClose={closeAppointmentDialog}>
         <DialogContent>
-          <AppointmentBooking doctorId={doctorId} />
+          <AppointmentBooking />
         </DialogContent>
       </Dialog>
     </div>
