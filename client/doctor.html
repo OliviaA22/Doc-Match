@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            "i want all doctors in my database to appear here"
+            <div id="doctorsList" class="row"></div>
 
         </div>
     </div>
@@ -238,6 +238,33 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
+
+    <!--Fetch all doctors from the backend-->
+    <script>
+    fetch('/doctors')
+    .then(response => response.json())
+    .then(data => {
+      const doctorsList = document.getElementById('doctorsList');
+
+      // Iterate over the list of doctors and create HTML elements to display their information
+      data.forEach(doctor => {
+        const doctorElement = document.createElement('div');
+        doctorElement.classList.add('col-lg-4', 'col-md-6', 'col-sm-12');
+        doctorElement.innerHTML = `
+          <div class="single-team mb-30">
+            <div class="team-img">
+              <img src="${doctor.photo}" alt="Doctor Photo">
+            </div>
+            <div class="team-caption">
+              <h3>${doctor.name}</h3>
+              <span>${doctor.specialization}</span>
+            </div>
+          </div>
+        `;
+        doctorsList.appendChild(doctorElement);
+      });
+    });
+    </script>
     
 
     <script>

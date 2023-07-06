@@ -113,20 +113,20 @@
         const response = await sendRequest('/doctor', 'POST', doctor);
         
         console.log(response);
-      }
+    }
 
-      async function updateDoctor() {
+    async function updateDoctor() {
         const id = document.querySelector('#doctorId').value;
         const title = document.querySelector('#title').value;
         const firstName = document.querySelector('#firstName').value;
         const lastName = document.querySelector('#lastName').value;
         const specialisation = document.querySelector('#specialisation').value;
         const address = {
-          street: document.querySelector('#street').value,
-          city: document.querySelector('#city').value,
-          postcode: document.querySelector('#postcode').value,
-          state: document.querySelector('#state').value,
-          country: document.querySelector('#country').value,
+        street: document.querySelector('#street').value,
+        city: document.querySelector('#city').value,
+        postcode: document.querySelector('#postcode').value,
+        state: document.querySelector('#state').value,
+        country: document.querySelector('#country').value,
         };
         const language = document.querySelector('#language').value.split(',');
         
@@ -135,17 +135,17 @@
         const response = await sendRequest(`/doctor/${id}`, 'PUT', doctor);
         
         console.log(response);
-      }
+    }
 
-      async function deleteDoctor() {
+    async function deleteDoctor() {
         const id = document.querySelector('#deleteId').value;
         
         const response = await sendRequest(`/doctor/${id}`, 'DELETE');
         
         console.log(response);
-      }
+    }
 
-      async function getDoctor() {
+    async function getDoctor() {
         const id = document.querySelector('#getId').value;
         const response = await sendRequest(`/doctor/${id}`, 'GET');
 
@@ -162,5 +162,5 @@
             console.log('Error: Doctor not found');
         }
     </script>
-  </body>
+</body>
 </html>
