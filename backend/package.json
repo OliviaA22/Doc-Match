@@ -17,7 +17,7 @@
     "typescript": "^5.0.4",
     "zod": "^3.21.4"
   },
-  "name": "y",
+  "name": "backend",
   "version": "1.0.0",
   "main": "src/server.ts",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "y"
+    "url": "backend"
   },
   "author": "",
   "license": "ISC",
