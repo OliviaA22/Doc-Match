@@ -558,19 +558,19 @@
                 var userForm = document.getElementById('loginForm');
                 var adminForm = document.getElementById('adminLoginForm');
                 var buttonText = this.innerText === 'Switch to Admin Login' ? 'Switch to User Login' : 'Switch to Admin Login';
-        
+    
                 userForm.style.display = userForm.style.display === 'none' ? 'block' : 'none';
                 adminForm.style.display = adminForm.style.display === 'none' ? 'block' : 'none';
                 this.innerText = buttonText;
             });
-        
+    
             // Handle user form submission
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-        
+    
                 const email = e.target.elements.email.value;
                 const password = e.target.elements.password.value;
-        
+    
                 fetch('/api/v1/user/login', {
                     method: 'POST',
                     headers: {
@@ -591,36 +591,25 @@
                     // handle errors here
                 });
             });
-        
+    
             // Handle admin form submission
             document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-        
+    
                 const email = e.target.elements.admin_email.value;
                 const password = e.target.elements.admin_password.value;
-        
-                fetch('/api/v1/admin/login', {  // assuming you have an endpoint for admin login
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email,
-                        password,
-                    }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    // handle successful login here (e.g., store the token and redirect the user)
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    // handle errors here
-                });
+    
+                if (email === 'admin@docmatch.de' && password === 'docadmin') {
+                    // Redirect to admin/doctors.html
+                    window.location.href = 'admin/doctors.html';
+                } else {
+                    console.error('Invalid email or password');
+                    // Display an error message to the user
+                }
             });
-        }        
+        }
     </script>
+    
 
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
