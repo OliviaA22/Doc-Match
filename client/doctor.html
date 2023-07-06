@@ -239,7 +239,7 @@
 
     <!--Fetch all doctors from the backend-->
     <script>
-    fetch('/doctors')
+    fetch('http://localhost:5000/doctors')
     .then(response => response.json())
     .then(data => {
       const doctorsList = document.getElementById('doctorsList');

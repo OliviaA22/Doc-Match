@@ -395,40 +395,6 @@
         </div>
     </div>
     <!-- Gallery Area End -->
-    <!--? All startups Start -->
-    <div class="all-starups-area testimonial-area fix">
-        <!-- left Contents -->
-        <div class="starups">
-            <!--? Testimonial Start -->
-            <div class="h1-testimonial-active">
-                <!-- Single Testimonial -->
-                <div class="single-testimonial text-center">
-                    <!-- Testimonial Content -->
-                    <div class="testimonial-caption">
-                        <div class="testimonial-top-cap">
-                            <img src="assets/img/gallery/testimonial.png" alt="Testimonial Icon">
-                            <p>"I am at a stage in life where I prioritize my health and well-being. Taking care of our bodies is a personal responsibility, and I believe that making conscious choices leads to a fulfilling life. The journey towards good health starts with nourishing ourselves with clean and wholesome food. It's amazing how our bodies respond when we provide them with the right care and attention."</p>
-                        </div>
-                        <!-- testimonial founder -->
-                        <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                            <div class="founder-img">
-                                <img src="assets/img/gallery/Homepage_testi.png" alt="Founder Image">
-                            </div>
-                            <div class="founder-text">
-                                <span>Johnson Clever</span>
-                                <p>Web Developer</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <!-- Testimonial End -->
-        </div>
-        <!--Right Contents  -->
-        <div class="starups-img"></div>
-    </div>
-    <!--All startups End -->
      <!--? Team Start -->
      <div class="team-area section-padding30">
         <div class="container">
@@ -673,8 +639,8 @@
                 </div>
                 <div class="footer-bottom">
                     <div class="row d-flex justify-content-between align-items-center">
-                        <div class="col-xl-9 col-lg-8">
-                            <div class="footer-copy-right">
+                        <div class="col-xl-9 col-lg-8 ">
+                            <div class="footer-copy-right ">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to DocMatch</p>
                             </div>
@@ -738,9 +704,33 @@
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
 
+     <!--register-->
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let form = event.target;
+            let formData = new FormData(form);
+            let data = {};
+            formData.forEach((value, key) => {data[key] = value});
+            fetch('http://localhost:5000/api/v1/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+        </script>
+        
+
     <!--Fetch all doctors from the backend-->
     <script>
-        fetch('/doctors')
+        fetch('http://localhost:5000/doctors')
         .then(response => response.json())
         .then(data => {
             const selectDoctor = document.getElementById('select2');
@@ -753,11 +743,11 @@
                 selectDoctor.appendChild(option);
             });
         });
-    </script>
+    </script>    
 
         <!--Fetch all doctors from the backend-->
         <script>
-            fetch('/doctors')
+            fetch('http://localhost:5000/doctors')
             .then(response => response.json())
             .then(data => {
               const doctorsList = document.getElementById('doctorsList');
@@ -803,7 +793,7 @@
                 const email = e.target.elements.email.value;
                 const password = e.target.elements.password.value;
     
-                fetch('/api/v1/user/login', {
+                fetch('http://localhost:5000/api/v1/user/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

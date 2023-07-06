@@ -110,7 +110,7 @@
         
         const doctor = { title, firstName, lastName, specialisation, address, language };
         
-        const response = await sendRequest('/doctor', 'POST', doctor);
+        const response = await sendRequest('http://localhost:5000/doctor', 'POST', doctor);
         
         console.log(response);
     }
@@ -132,7 +132,7 @@
         
         const doctor = { id, title, firstName, lastName, specialisation, address, language };
         
-        const response = await sendRequest(`/doctor/${id}`, 'PUT', doctor);
+        const response = await sendRequest(`http://localhost:5000/doctor/${id}`, 'PUT', doctor);
         
         console.log(response);
     }
@@ -140,27 +140,26 @@
     async function deleteDoctor() {
         const id = document.querySelector('#deleteId').value;
         
-        const response = await sendRequest(`/doctor/${id}`, 'DELETE');
+        const response = await sendRequest(`http://localhost:5000/doctor/${id}`, 'DELETE');
         
         console.log(response);
     }
 
     async function getDoctor() {
         const id = document.querySelector('#getId').value;
-        const response = await sendRequest(`/doctor/${id}`, 'GET');
-
+        const response = await sendRequest(`http://localhost:5000/doctor/${id}`, 'GET');
+    
         // Check if the response contains the doctor's information
         if (response.success && response.data) {
             const doctor = response.data;
-
-            // Update the HTML elements with the received doctor's information
             document.querySelector('#doctorName').textContent = `${doctor.title} ${doctor.firstName} ${doctor.lastName}`;
             document.querySelector('#specialisation').textContent = `Specialisation: ${doctor.specialisation}`;
-            document.querySelector('#address').textContent = `Address: ${doctor.address.street}, ${doctor.address.city}, ${doctor.address.postcode}`;
+            document.querySelector('#address').textContent = `Address: ${doctor.address.street}, ${doctor.address.city}, ${doctor.address.state}, ${doctor.address.country}, ${doctor.address.postcode}`;
             document.querySelector('#language').textContent = `Language: ${doctor.language.join(', ')}`;
         } else {
             console.log('Error: Doctor not found');
         }
+    }    
     </script>
 </body>
 </html>
