@@ -29,10 +29,6 @@ const AppointmentSchema = new Schema({
     type: Date,
     required: true,
   },
-  reason: {
-    type: String,
-    required: true,
-  },
   createdAt: {
     type: Date,
     default: Date.now,
