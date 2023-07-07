@@ -29,7 +29,6 @@
      2. Navigate to the project directory: `cd DocMatch`
      3. Install the required dependencies: `npm install`
      4. To run the backend: `npm run dev`
-     5. To start the frontend: `npm start`
 
 5. Usage:
    - **Searching for Doctors**:
