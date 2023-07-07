@@ -23,6 +23,37 @@
 	<link rel="stylesheet" href="assets/css/slick.css">
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #0069d9;
+        }
+    </style>
 </head>
 <body>
     <!-- ? Preloader Start -->
@@ -116,8 +147,32 @@
                 </div>
             </div>
 
-            <div id="doctorsList" class="row"></div>
+                <!-- Search bar -->
+                <div class="search-bar">
+                    <input type="text" id="searchSpecialization" placeholder="Specialization">
+                    <input type="text" id="searchLanguage" placeholder="Language">
+                    <input type="text" id="searchLocation" placeholder="Location">
+                    <button id="searchButton">Search</button>
+                </div>
 
+                <!-- Doctors list -->
+                <div id="doctorsList" class="row">
+                    <!-- Example doctor item -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 doctor-item" data-language="english" data-specialization="cardiology" data-location="new york" style="text-align: center;">
+                        <h3>Dr. Johnson Clever</h3>
+                        <p>Specialization: Cardiology</p>
+                        <p>Language: English</p>
+                        <p>Location: New York</p>
+                    </div>
+
+                    <!-- Add more doctor items here... -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 doctor-item" data-language="spanish" data-specialization="pediatrics" data-location="miami" style="text-align: center;">
+                        <h3>Dr. Olivia Okoro</h3>
+                        <p>Specialization: Pediatrics</p>
+                        <p>Language: Spanish</p>
+                        <p>Location: Miami</p>
+                    </div>
+                </div>
         </div>
     </div>
     <!-- Team End -->
@@ -236,6 +291,36 @@
     <!-- Jquery Plugins, main Jquery -->	
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
+
+    <script>
+        function searchDoctors() {
+            var searchSpecialization = document.getElementById('searchSpecialization').value.toLowerCase();
+            var searchLanguage = document.getElementById('searchLanguage').value.toLowerCase();
+            var searchLocation = document.getElementById('searchLocation').value.toLowerCase();
+        
+            var doctorItems = document.querySelectorAll('.doctor-item');
+        
+            for (var i = 0; i < doctorItems.length; i++) {
+                var doctorItem = doctorItems[i];
+                var doctorSpecialization = doctorItem.getAttribute('data-specialization').toLowerCase();
+                var doctorLanguage = doctorItem.getAttribute('data-language').toLowerCase();
+                var doctorLocation = doctorItem.getAttribute('data-location').toLowerCase();
+        
+                var specializationMatch = doctorSpecialization.includes(searchSpecialization);
+                var languageMatch = doctorLanguage.includes(searchLanguage);
+                var locationMatch = doctorLocation.includes(searchLocation);
+        
+                if (specializationMatch && languageMatch && locationMatch) {
+                    doctorItem.style.display = 'block';
+                } else {
+                    doctorItem.style.display = 'none';
+                }
+            }
+        }
+        
+        var searchButton = document.getElementById('searchButton');
+        searchButton.addEventListener('click', searchDoctors);        
+    </script>
 
     <!--Fetch all doctors from the backend-->
     <script>
@@ -365,17 +450,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Add your register form here -->
                 <form id="registerForm" method="POST">
-                    <input type="text" name="firstName" placeholder="First Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <input type="text" name="lastName" placeholder="Last Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <button type="submit" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Register</button>
+                    <input type="text" name="firstName" placeholder="First Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="lastName" placeholder="Last Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="street" placeholder="Street" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="city" placeholder="City" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="number" name="postcode" placeholder="Postcode" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="state" placeholder="State" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="country" placeholder="Country" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="language" placeholder="Languages" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <button type="submit" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Register</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
     </body>
 </html>

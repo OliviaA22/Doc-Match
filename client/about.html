@@ -515,6 +515,59 @@
             });
         }
     </script>
+
+    <script>
+        window.onload = function() {
+            // Handle register form submission
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+    
+                const firstName = e.target.elements.firstName.value;
+                const lastName = e.target.elements.lastName.value;
+                const email = e.target.elements.email.value;
+                const password = e.target.elements.password.value;
+                const street = e.target.elements.street.value;
+                const city = e.target.elements.city.value;
+                const postcode = e.target.elements.postcode.value;
+                const state = e.target.elements.state.value;
+                const country = e.target.elements.country.value;
+                const language = e.target.elements.language.value;
+    
+                fetch('http://localhost:5000/api/v1/user/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        firstName,
+                        lastName,
+                        email,
+                        password,
+                        address: {
+                            street,
+                            city,
+                            postcode,
+                            state,
+                            country
+                        },
+                        language: language.split(',').map(lang => lang.trim()),  // Convert comma-separated string to array
+                    }),
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    // handle successful registration here
+                    alert('Registration successful! Redirecting...');
+                    // Here, for instance, you might want to redirect to the login page
+                    window.location.href = '/doctor.html';
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    // handle errors here
+                    alert('Registration failed: ' + error.message);
+                });
+            });
+        }
+    </script>    
     
 
 <!-- Login Modal -->
@@ -557,17 +610,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Add your register form here -->
                 <form id="registerForm" method="POST">
-                    <input type="text" name="firstName" placeholder="First Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <input type="text" name="lastName" placeholder="Last Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                    <button type="submit" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">Register</button>
+                    <input type="text" name="firstName" placeholder="First Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="lastName" placeholder="Last Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="password" name="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="street" placeholder="Street" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="city" placeholder="City" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="number" name="postcode" placeholder="Postcode" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="state" placeholder="State" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="country" placeholder="Country" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <input type="text" name="language" placeholder="Languages" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 18px;">
+                    <button type="submit" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 18px;">Register</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
     </body>
 </html>

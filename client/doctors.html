@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Doctor App</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          padding: 30px;
+        }
+  
+        h1 {
+          color: #005a9c;
+          margin-bottom: 20px;
+        }
+  
+        form {
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
+          margin-bottom: 30px;
+        }
+  
+        input[type="text"] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border: none;
+          background-color: #f8f8f8;
+          border-radius: 5px;
+        }
+  
+        button {
+          background-color: #005a9c;
+          color: white;
+          padding: 10px 20px;
+          margin: 10px 0;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+  
+        button:hover {
+          background-color: #003f6b;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>Create/Update Doctor</h1>
+    <form id="doctorForm">
+      <input type="text" id="doctorId" placeholder="Doctor Id (for update)">
+      <input type="text" id="title" placeholder="Title">
+      <input type="text" id="firstName" placeholder="First Name">
+      <input type="text" id="lastName" placeholder="Last Name">
+      <input type="text" id="specialisation" placeholder="Specialisation">
+      <input type="text" id="street" placeholder="Street">
+      <input type="text" id="city" placeholder="City">
+      <input type="text" id="postcode" placeholder="Postcode">
+      <input type="text" id="state" placeholder="State">
+      <input type="text" id="country" placeholder="Country">
+      <input type="text" id="language" placeholder="Language (comma separated)">
+      <button type="button" onclick="saveDoctor()">Save</button>
+      <button type="button" onclick="updateDoctor()">Update</button>
+    </form>
+    
+    <h1>Delete Doctor</h1>
+    <form id="deleteForm">
+      <input type="text" id="deleteId" placeholder="Doctor Id">
+      <button type="button" onclick="deleteDoctor()">Delete</button>
+    </form>
+    
+    <h1>Get Doctor</h1>
+    <form id="getForm">
+      <input type="text" id="getId" placeholder="Doctor Id">
+      <button type="button" onclick="getDoctor()">Get Doctor</button>
+    </form>
+
+    <!-- Elements to display doctor's information -->
+    <h2 id="doctorName"></h2>
+    <p id="specialisation"></p>
+    <p id="address"></p>
+    <p id="language"></p>
+
+    <script>
+      function sendRequest(url, method, body) {
+        return fetch(url, {
+          method,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body),
+        }).then(response => response.json());
+      }
+
+      async function saveDoctor() {
+        const title = document.querySelector('#title').value;
+        const firstName = document.querySelector('#firstName').value;
+        const lastName = document.querySelector('#lastName').value;
+        const specialisation = document.querySelector('#specialisation').value;
+        const address = {
+          street: document.querySelector('#street').value,
+          city: document.querySelector('#city').value,
+          postcode: document.querySelector('#postcode').value,
+          state: document.querySelector('#state').value,
+          country: document.querySelector('#country').value,
+        };
+        const language = document.querySelector('#language').value.split(',');
+        
+        const doctor = { title, firstName, lastName, specialisation, address, language };
+        
+        const response = await sendRequest('http://localhost:5000/doctor', 'POST', doctor);
+        
+        console.log(response);
+    }
+
+    async function updateDoctor() {
+        const id = document.querySelector('#doctorId').value;
+        const title = document.querySelector('#title').value;
+        const firstName = document.querySelector('#firstName').value;
+        const lastName = document.querySelector('#lastName').value;
+        const specialisation = document.querySelector('#specialisation').value;
+        const address = {
+        street: document.querySelector('#street').value,
+        city: document.querySelector('#city').value,
+        postcode: document.querySelector('#postcode').value,
+        state: document.querySelector('#state').value,
+        country: document.querySelector('#country').value,
+        };
+        const language = document.querySelector('#language').value.split(',');
+        
+        const doctor = { id, title, firstName, lastName, specialisation, address, language };
+        
+        const response = await sendRequest(`http://localhost:5000/doctor/${id}`, 'PUT', doctor);
+        
+        console.log(response);
+    }
+
+    async function deleteDoctor() {
+        const id = document.querySelector('#deleteId').value;
+        
+        const response = await sendRequest(`http://localhost:5000/doctor/${id}`, 'DELETE');
+        
+        console.log(response);
+    }
+
+    async function getDoctor() {
+        const id = document.querySelector('#getId').value;
+        const response = await sendRequest(`http://localhost:5000/doctor/${id}`, 'GET');
+    
+        // Check if the response contains the doctor's information
+        if (response.success && response.data) {
+            const doctor = response.data;
+            document.querySelector('#doctorName').textContent = `${doctor.title} ${doctor.firstName} ${doctor.lastName}`;
+            document.querySelector('#specialisation').textContent = `Specialisation: ${doctor.specialisation}`;
+            document.querySelector('#address').textContent = `Address: ${doctor.address.street}, ${doctor.address.city}, ${doctor.address.state}, ${doctor.address.country}, ${doctor.address.postcode}`;
+            document.querySelector('#language').textContent = `Language: ${doctor.language.join(', ')}`;
+        } else {
+            console.log('Error: Doctor not found');
+        }
+    }    
+    </script>
+</body>
+</html>
