@@ -17,7 +17,7 @@
 
 3. Technologies Used:
    - This project utilizes the following technologies:
-     - Frontend: React, HTML, CSS, JavaScript, TypeScript
+     - Frontend: React, HTML, CSS, JavaScript, Bootstrap4
      - Backend: Node.js, JavaScript, TypeScript
      - Database: MongoDB
      - Libraries and APIs: Mongoose, Axios, Geolocation API
