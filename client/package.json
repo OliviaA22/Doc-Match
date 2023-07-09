@@ -1,8 +1,8 @@
 {
-  "name": "docfind",
+  "name": "doc-match",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://metropolitanhost.com/themes/themeforest/react/docfind/",
+  "homepage": "/Doc-Match",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",

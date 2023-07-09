@@ -42,7 +42,7 @@ const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
 
 function App() {
   return (
-    <Router basename={"/themes/themeforest/react/docfind/"}>
+    <Router basename={"/Doc-Match/"}>
       <Suspense fallback={<div></div>}>
         <ScrollToTop>
           <Switch>
