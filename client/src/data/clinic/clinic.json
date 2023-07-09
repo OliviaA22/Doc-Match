@@ -1,0 +1,296 @@
+[
+    {
+        "id": 1,
+        "name": "Matthew Reyes",
+        "image": "assets/img/clinic-grid/348x350-0.jpg",
+        "rating": 5,
+        "specialist": "Obstetrics & Gynaecology",
+        "location": "Hong Kong",
+        "qualification": "University of California San Francisco Parnassus Campus",
+        "experience": 5,
+        "available": [
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "category": [
+            1,
+            2
+        ],
+        "phone": "(741)376-5672",
+        "email": "example@example.com",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    2
+                ],
+                "commentdate": "07 March",
+                "rating": 5,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Rebecca Gilbert",
+        "image": "assets/img/clinic-grid/348x350-1.jpg",
+        "rating": 4,
+        "specialist": "Obstetrics & Gynaecology",
+        "location": "Hong Kong",
+        "qualification": "University of California San Francisco Parnassus Campus",
+        "experience": 5,
+        "available": [
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "category": [
+            3,
+            4
+        ],
+        "phone": "(741)376-5672",
+        "email": "example@example.com",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    2
+                ],
+                "commentdate": "07 March",
+                "rating": 5,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Bobby Stanley",
+        "image": "assets/img/clinic-grid/348x350-2.jpg",
+        "rating": 5,
+        "specialist": "Obstetrics & Gynaecology",
+        "location": "Hong Kong",
+        "qualification": "University of California San Francisco Parnassus Campus",
+        "experience": 5,
+        "available": [
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "category": [
+            1,
+            5
+        ],
+        "phone": "(741)376-5672",
+        "email": "example@example.com",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    2
+                ],
+                "commentdate": "07 March",
+                "rating": 5,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Kathryn Cooper",
+        "image": "assets/img/clinic-grid/348x350-3.jpg",
+        "rating": 4,
+        "specialist": "Obstetrics & Gynaecology",
+        "location": "Hong Kong",
+        "qualification": "University of California San Francisco Parnassus Campus",
+        "experience": 5,
+        "available": [
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "category": [
+            2,
+            3
+        ],
+        "phone": "(741)376-5672",
+        "email": "example@example.com",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    2
+                ],
+                "commentdate": "07 March",
+                "rating": 5,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Carmen Nelson",
+        "image": "assets/img/clinic-grid/348x350-4.jpg",
+        "rating": 4,
+        "specialist": "Obstetrics & Gynaecology",
+        "location": "Hong Kong",
+        "qualification": "University of California San Francisco Parnassus Campus",
+        "experience": 5,
+        "available": [
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "category": [
+            4,
+            5
+        ],
+        "phone": "(741)376-5672",
+        "email": "example@example.com",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    2
+                ],
+                "commentdate": "07 March",
+                "rating": 5,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Janice Hughes",
+        "image": "assets/img/clinic-grid/348x350-5.jpg",
+        "rating": 5,
+        "specialist": "Obstetrics & Gynaecology",
+        "location": "Hong Kong",
+        "qualification": "University of California San Francisco Parnassus Campus",
+        "experience": 5,
+        "available": [
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "category": [
+            1,
+            2
+        ],
+        "phone": "(741)376-5672",
+        "email": "example@example.com",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    2
+                ],
+                "commentdate": "07 March",
+                "rating": 5,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "07 March",
+                "rating": 4,
+                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+        ]
+    }
+]

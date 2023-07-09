@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "author": [
+            1
+        ],
+        "comment": "DocMatch has revolutionized patient-doctor matching, optimizing by location, language, and specialization, truly an innovation in healthcare connectivity."
+    },
+    {
+        "id": 2,
+        "author": [
+            2
+        ],
+        "comment": "DocMatch has made patient alignment efficient and seamless, reshaping the dynamics of my medical practice."
+    },
+    {
+        "id": 3,
+        "author": [
+            4
+        ],
+        "comment": "As a doctor, DocMatch is an essential tool, connecting me with patients by considering my specialization, location, and language."
+    }
+]

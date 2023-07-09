@@ -1,0 +1,211 @@
+/* You can add global styles to this file, and also import other style files */
+button:hover,
+button:focus,
+:focus {
+    outline: none!important;
+    text-decoration: none!important;
+}
+.pagination{
+    flex-wrap: wrap;
+}
+.pagination .page-item{
+    margin-bottom: 15px;
+}
+.slick-slider .slick-track, .slick-slider .slick-list{
+    display: flex;
+}
+.aside-open.sigma_aside {
+    left: 0;
+}
+.aside-open.sigma_aside:not(.sigma_aside-desktop)+.sigma_aside-overlay, 
+.aside-right-open.sigma_aside-desktop+.sigma_aside-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+.sigma_about-content .sigma_info:last-child{
+    margin-bottom: 0;
+}
+.sigma_testimonial .sigma_testimonial-thumb img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.sigma_post.post-format-quote blockquote + .sigma_post-body,
+.sigma_post.post-format-link .sigma_post-body + .sigma_post-body{
+	display: none;
+}
+.widget.widget-sigma-recent-posts .sigma_recent-post .recent-post-image img{
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+}
+.sigma_post-details.style-6 .comments-list .comment-item:last-child {
+    margin-left: 0px;
+}
+.sigma_post-details.style-6 .comments-list .comment-item + .comment-item{
+	margin-left: 70px;
+	margin-bottom: 0;
+}
+.comments-list ul{
+	margin-bottom: 30px;
+}
+.comments-list ul + ul{
+	margin-bottom: 0px;
+}
+.accordion{
+	position: relative;
+	display: block;
+}
+.relative {
+    position: relative;
+}
+.error-texts h1 {
+    font-size: 133px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+.error-texts h3{
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.error-texts p{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.sigma_team .sigma_team-controls a.active {
+    background-color: var(--thm-base);
+    color: #fff;
+}
+.sigma_info-wrapper.style-26{
+    flex-wrap: unset;
+}
+.service-details img{
+    width: 100%;
+}
+.sigma_progress.round.sm img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0;
+}
+
+.sigma_progress.round>img {
+    width: 120px;
+    height: 120px;
+    overflow: visible;
+}
+.gallery-thumb{
+    display: block;
+}
+.gallery-thumb img{
+    width: 100%;
+}
+.card .card-header .btn{
+    white-space: normal;
+}
+.card .card-header .btn:after{
+    margin-left: 20px;
+}
+.sigma_clients.style-3{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sigma_post.style-7 .sigma_post-body{
+    padding-bottom: 15px;
+}
+.sigma_post .sigma_post-meta ul li{
+    margin-bottom: 15px;
+}
+.sigma_post.style-7 .sigma_post-meta ul li+li, .sigma_post.style-8 .sigma_post-meta ul li+li{
+    margin-left: 0;
+}
+.sigma_post.style-7 .sigma_post-meta ul li, 
+.sigma_post.style-8 .sigma_post-meta ul li{
+    margin-right: 20px;
+}
+.sigma_post.style-7 .sigma_post-meta ul li:last-child, 
+.sigma_post.style-8 .sigma_post-meta ul li:last-child{
+    margin-right: 0px;
+}
+.sigma_post .sigma_post-meta ul li{
+    margin-right: 20px;
+}
+.sigma_post.style-11 .sigma_post-meta ul li:last-child, 
+.sigma_post.style-12 .sigma_post-meta ul li:last-child, 
+.sigma_post.style-15 .sigma_post-meta ul li:last-child{
+    margin-right: 0;
+}
+.sigma_post.style-11 .sigma_post-meta ul li + li, 
+.sigma_post.style-12 .sigma_post-meta ul li + li, 
+.sigma_post.style-15 .sigma_post-meta ul li + li{
+    margin-left: 0;
+}
+.sigma_post-details.style-6 .sigma_post-details-meta{
+    margin-bottom: 0;
+}
+.sigma_post-details.style-6 .sigma_post-details-meta span{
+    margin-bottom: 12px;
+}
+.sigma_post.post-format-link .sigma_post-body{
+    padding-bottom: 50px;
+}
+.card .card-header{
+    display: flex;
+    flex-basis: 100%;
+    order: 1;
+    border-radius: 0;
+}
+.card .collapseparent{
+    order: 2;
+}
+.sigma_accordion.style-13 .card .collapseparent.show + .card-header .btn:after {
+    content: "\f068";
+}
+.irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single, .irs--flat .irs-bar, .irs--flat .irs-handle>i:first-child {
+    background-color: var(--thm-base)!important;
+}
+  .sidebar-style-9 .sidebar .widget .irs--flat .irs-handle>i:first-child{
+    width: 20px!important;
+    height: 20px!important;
+    background-color: #fff!important;
+    border: 2px solid var(--thm-base)!important;
+    border-radius: 50%!important;
+    top: -5px!important;
+  }
+  .sidebar-style-9 .sidebar .widget .irs--flat .irs-handle{
+    width: auto!important;
+  }
+  
+  .sidebar-style-9 .sidebar .widget .irs--flat .irs-bar,
+  .sidebar-style-9 .sidebar .widget .irs--flat .irs-line{
+    height: 5px!important;
+  }
+  .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
+    border-top-color: var(--thm-base)!important;
+}
+@media (max-width:991px) {
+    .sigma_info-wrapper.style-26{
+        flex-wrap: wrap;
+    }
+    .mb-md-80{
+        margin-bottom: 80px;
+    }
+}
+@media (max-width:575px){
+    .sigma_about.style-21 .sigma_about-image-1{
+        max-width: 100%;
+    }
+    .sigma_about.style-21 .sigma_about-image-1 img{
+        width: 100%;
+    }
+    .sigma_team.style-17 .sigma_rating{
+        margin-top: 30px;
+    }
+    .sigma_testimonial.style-14 .sigma_testimonial-body{
+        margin-top: 0;
+    }
+}
+.alert.d-block{
+    display: block!important;
+}

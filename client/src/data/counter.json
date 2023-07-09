@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "icon":"fal fa-procedures",
+        "title":"Happy Customers",
+        "value":3500
+    },
+    {
+        "id":2,
+        "icon":"fal fa-file-medical-alt",
+        "title":"Project Done",
+        "value":541
+    },
+    {
+        "id":3,
+        "icon":"fal fa-heartbeat",
+        "title":"Awards Win",
+        "value":40
+    },
+    {
+        "id":4,
+        "icon":"fal fa-ambulance",
+        "title":"Clients Work",
+        "value":678
+    }
+]

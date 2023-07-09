@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "Language Pairing",
+        "icon": "flaticon-heartbeat",
+        "text": "Prioritizing clear communication via language-focused matching."
+    },
+    {
+        "id": 2,
+        "title": "Expert Location-Based Services",
+        "icon": "flaticon-group",
+        "text": "Utilizing geolocation for effective doctor discovery."
+    }
+]

@@ -1,0 +1,295 @@
+[
+    {
+        "id": 1,
+        "title": "Having over weight and depression can",
+        "format": "standard",
+        "image": [
+            "assets/img/blog-grid/350x300.jpg"
+        ],
+        "category": [
+            1,
+            2
+        ],
+        "tags": [
+            1,
+            2
+        ],
+        "author": [
+            1
+        ],
+        "postdate": "25 July, 2022",
+        "shorttext": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><blockquote><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><cite>Kyle Dean</cite></blockquote><h4>Fpark Calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> <a href='../assets/img/blog-details/800x400-0.jpg' class='gallery-thumb'> <img src='../assets/img/blog-details/800x400-0.jpg' alt='post'> </a><h4>DDH Entertainment Sparks calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": [
+                    {
+                        "user": [
+                            2
+                        ],
+                        "commentdate": "January 13",
+                        "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches"
+                    }
+                ]
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "The Connection Between Post-traumatic",
+        "format": "video",
+        "video": "https://www.youtube.com/watch?v=TKnufs85hXk",
+        "image": [
+            "assets/img/blog-grid/350x300-0.jpg"
+        ],
+        "category": [
+            3,
+            4
+        ],
+        "tags": [
+            3,
+            4
+        ],
+        "author": [
+            2
+        ],
+        "postdate": "25 July, 2022",
+        "shorttext": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><blockquote><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><cite>Kyle Dean</cite></blockquote><h4>Fpark Calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> <a href='../assets/img/blog-details/800x400-0.jpg' class='gallery-thumb'> <img src='../assets/img/blog-details/800x400-0.jpg' alt='post'> </a><h4>DDH Entertainment Sparks calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": [
+                    {
+                        "user": [
+                            2
+                        ],
+                        "commentdate": "January 13",
+                        "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches"
+                    }
+                ]
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Adjusting to life with a spinal cord injury",
+        "format": "quote",
+        "quote": "It is a long established fact that a reader will be distracted by the readable",
+        "quoteauthor": "Tim Abel",
+        "image": [
+            "assets/img/blog-grid/350x300-1.jpg"
+        ],
+        "category": [
+            1,
+            5
+        ],
+        "tags": [
+            1,
+            5
+        ],
+        "author": [
+            3
+        ],
+        "postdate": "25 July, 2022",
+        "shorttext": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><blockquote><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><cite>Kyle Dean</cite></blockquote><h4>Fpark Calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> <a href='../assets/img/blog-details/800x400-0.jpg' class='gallery-thumb'> <img src='../assets/img/blog-details/800x400-0.jpg' alt='post'> </a><h4>DDH Entertainment Sparks calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": [
+                    {
+                        "user": [
+                            2
+                        ],
+                        "commentdate": "January 13",
+                        "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches"
+                    }
+                ]
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Having over weight and depression can",
+        "format": "audio",
+        "audio": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/41395010&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false",
+        "image": [
+            "assets/img/blog-grid/350x300-2.jpg"
+        ],
+        "category": [
+            2,
+            3
+        ],
+        "tags": [
+            2,
+            3
+        ],
+        "author": [
+            4
+        ],
+        "postdate": "25 July, 2022",
+        "shorttext": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><blockquote><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><cite>Kyle Dean</cite></blockquote><h4>Fpark Calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> <a href='../assets/img/blog-details/800x400-0.jpg' class='gallery-thumb'> <img src='../assets/img/blog-details/800x400-0.jpg' alt='post'> </a><h4>DDH Entertainment Sparks calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": [
+                    {
+                        "user": [
+                            2
+                        ],
+                        "commentdate": "January 13",
+                        "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches"
+                    }
+                ]
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "The connection between post-traumatic",
+        "format": "link",
+        "link": "www.example.com",
+        "image": [
+            "assets/img/blog-grid/350x300-3.jpg"
+        ],
+        "category": [
+            4,
+            5
+        ],
+        "tags": [
+            4,
+            5
+        ],
+        "author": [
+            5
+        ],
+        "postdate": "25 July, 2022",
+        "shorttext": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><blockquote><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><cite>Kyle Dean</cite></blockquote><h4>Fpark Calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> <a href='../assets/img/blog-details/800x400-0.jpg' class='gallery-thumb'> <img src='../assets/img/blog-details/800x400-0.jpg' alt='post'> </a><h4>DDH Entertainment Sparks calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": [
+                    {
+                        "user": [
+                            2
+                        ],
+                        "commentdate": "January 13",
+                        "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches"
+                    }
+                ]
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Adjusting to life with a spinal cord injury",
+        "format": "standard",
+        "image": [
+            "assets/img/blog-grid/350x300-4.jpg"
+        ],
+        "category": [
+            1,
+            2
+        ],
+        "tags": [
+            1,
+            2
+        ],
+        "author": [
+            6
+        ],
+        "postdate": "25 July, 2022",
+        "shorttext": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><blockquote><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p><cite>Kyle Dean</cite></blockquote><h4>Fpark Calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> <a href='../assets/img/blog-details/800x400-0.jpg' class='gallery-thumb'> <img src='../assets/img/blog-details/800x400-0.jpg' alt='post'> </a><h4>DDH Entertainment Sparks calls for Security</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>",
+        "reviews": [
+            {
+                "user": [
+                    1
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": [
+                    {
+                        "user": [
+                            2
+                        ],
+                        "commentdate": "January 13",
+                        "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches"
+                    }
+                ]
+            },
+            {
+                "user": [
+                    3
+                ],
+                "commentdate": "December 27",
+                "comment": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy.",
+                "replies": []
+            }
+        ]
+    }
+]

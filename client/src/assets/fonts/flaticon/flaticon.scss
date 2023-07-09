@@ -1,0 +1,225 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?fae8c1d95b6dc4a8cd932ddf867b5349") format("truetype"),
+url("./flaticon.woff?fae8c1d95b6dc4a8cd932ddf867b5349") format("woff"),
+url("./flaticon.woff2?fae8c1d95b6dc4a8cd932ddf867b5349") format("woff2"),
+url("./flaticon.eot?fae8c1d95b6dc4a8cd932ddf867b5349#iefix") format("embedded-opentype"),
+url("./flaticon.svg?fae8c1d95b6dc4a8cd932ddf867b5349#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "accept": "\f101",
+    "air-freight": "\f102",
+    "airplane": "\f103",
+    "ambulance-1": "\f104",
+    "ambulance-2": "\f105",
+    "ambulance": "\f106",
+    "arrow": "\f107",
+    "back-1": "\f108",
+    "back-2": "\f109",
+    "back": "\f10a",
+    "calendar": "\f10b",
+    "call": "\f10c",
+    "checklist": "\f10d",
+    "clipboard": "\f10e",
+    "close": "\f10f",
+    "doctor-1": "\f110",
+    "doctor": "\f111",
+    "download": "\f112",
+    "envelope": "\f113",
+    "event": "\f114",
+    "group": "\f115",
+    "health-check": "\f116",
+    "heart-1": "\f117",
+    "heart": "\f118",
+    "heartbeat": "\f119",
+    "home": "\f11a",
+    "hospital-1": "\f11b",
+    "hospital-2": "\f11c",
+    "hospital-bed": "\f11d",
+    "hospital": "\f11e",
+    "location": "\f11f",
+    "mail": "\f120",
+    "man": "\f121",
+    "medical-record": "\f122",
+    "medicine": "\f123",
+    "menu-1": "\f124",
+    "menu": "\f125",
+    "message": "\f126",
+    "next": "\f127",
+    "pharmacy": "\f128",
+    "phone-call": "\f129",
+    "phone": "\f12a",
+    "pills": "\f12b",
+    "shopping-cart": "\f12c",
+    "stethoscope": "\f12d",
+    "team": "\f12e",
+    "teamwork": "\f12f",
+    "tick": "\f130",
+    "upload": "\f131",
+    "user": "\f132",
+);
+
+.flaticon-accept:before {
+    content: map-get($flaticon-map, "accept");
+}
+.flaticon-air-freight:before {
+    content: map-get($flaticon-map, "air-freight");
+}
+.flaticon-airplane:before {
+    content: map-get($flaticon-map, "airplane");
+}
+.flaticon-ambulance-1:before {
+    content: map-get($flaticon-map, "ambulance-1");
+}
+.flaticon-ambulance-2:before {
+    content: map-get($flaticon-map, "ambulance-2");
+}
+.flaticon-ambulance:before {
+    content: map-get($flaticon-map, "ambulance");
+}
+.flaticon-arrow:before {
+    content: map-get($flaticon-map, "arrow");
+}
+.flaticon-back-1:before {
+    content: map-get($flaticon-map, "back-1");
+}
+.flaticon-back-2:before {
+    content: map-get($flaticon-map, "back-2");
+}
+.flaticon-back:before {
+    content: map-get($flaticon-map, "back");
+}
+.flaticon-calendar:before {
+    content: map-get($flaticon-map, "calendar");
+}
+.flaticon-call:before {
+    content: map-get($flaticon-map, "call");
+}
+.flaticon-checklist:before {
+    content: map-get($flaticon-map, "checklist");
+}
+.flaticon-clipboard:before {
+    content: map-get($flaticon-map, "clipboard");
+}
+.flaticon-close:before {
+    content: map-get($flaticon-map, "close");
+}
+.flaticon-doctor-1:before {
+    content: map-get($flaticon-map, "doctor-1");
+}
+.flaticon-doctor:before {
+    content: map-get($flaticon-map, "doctor");
+}
+.flaticon-download:before {
+    content: map-get($flaticon-map, "download");
+}
+.flaticon-envelope:before {
+    content: map-get($flaticon-map, "envelope");
+}
+.flaticon-event:before {
+    content: map-get($flaticon-map, "event");
+}
+.flaticon-group:before {
+    content: map-get($flaticon-map, "group");
+}
+.flaticon-health-check:before {
+    content: map-get($flaticon-map, "health-check");
+}
+.flaticon-heart-1:before {
+    content: map-get($flaticon-map, "heart-1");
+}
+.flaticon-heart:before {
+    content: map-get($flaticon-map, "heart");
+}
+.flaticon-heartbeat:before {
+    content: map-get($flaticon-map, "heartbeat");
+}
+.flaticon-home:before {
+    content: map-get($flaticon-map, "home");
+}
+.flaticon-hospital-1:before {
+    content: map-get($flaticon-map, "hospital-1");
+}
+.flaticon-hospital-2:before {
+    content: map-get($flaticon-map, "hospital-2");
+}
+.flaticon-hospital-bed:before {
+    content: map-get($flaticon-map, "hospital-bed");
+}
+.flaticon-hospital:before {
+    content: map-get($flaticon-map, "hospital");
+}
+.flaticon-location:before {
+    content: map-get($flaticon-map, "location");
+}
+.flaticon-mail:before {
+    content: map-get($flaticon-map, "mail");
+}
+.flaticon-man:before {
+    content: map-get($flaticon-map, "man");
+}
+.flaticon-medical-record:before {
+    content: map-get($flaticon-map, "medical-record");
+}
+.flaticon-medicine:before {
+    content: map-get($flaticon-map, "medicine");
+}
+.flaticon-menu-1:before {
+    content: map-get($flaticon-map, "menu-1");
+}
+.flaticon-menu:before {
+    content: map-get($flaticon-map, "menu");
+}
+.flaticon-message:before {
+    content: map-get($flaticon-map, "message");
+}
+.flaticon-next:before {
+    content: map-get($flaticon-map, "next");
+}
+.flaticon-pharmacy:before {
+    content: map-get($flaticon-map, "pharmacy");
+}
+.flaticon-phone-call:before {
+    content: map-get($flaticon-map, "phone-call");
+}
+.flaticon-phone:before {
+    content: map-get($flaticon-map, "phone");
+}
+.flaticon-pills:before {
+    content: map-get($flaticon-map, "pills");
+}
+.flaticon-shopping-cart:before {
+    content: map-get($flaticon-map, "shopping-cart");
+}
+.flaticon-stethoscope:before {
+    content: map-get($flaticon-map, "stethoscope");
+}
+.flaticon-team:before {
+    content: map-get($flaticon-map, "team");
+}
+.flaticon-teamwork:before {
+    content: map-get($flaticon-map, "teamwork");
+}
+.flaticon-tick:before {
+    content: map-get($flaticon-map, "tick");
+}
+.flaticon-upload:before {
+    content: map-get($flaticon-map, "upload");
+}
+.flaticon-user:before {
+    content: map-get($flaticon-map, "user");
+}

@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "linkText": "Home",
+        "child": true,
+        "submenu": [
+            {
+                "id": 1.1,
+                "link": "/",
+                "linkText": "Home"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "linkText": "Blog",
+        "child": true,
+        "submenu": [
+            {
+                "id": 2.1,
+                "link": "/blog",
+                "linkText": "Blog Grid"
+            },
+            {
+                "id": 2.2,
+                "link": "/blog-standard",
+                "linkText": "Blog Standard"
+            },
+            {
+                "id": 2.3,
+                "link": "/blog-details/1",
+                "linkText": "Blog Details"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "linkText": "Pages",
+        "child": true,
+        "submenu": [
+            {
+                "id": 3.1,
+                "link": "/about",
+                "linkText": "About Us"
+            },
+            {
+                "id": 3.2,
+                "link": "/services",
+                "linkText": "Services"
+            },
+            {
+                "id": 3.3,
+                "link": "/service-details/1",
+                "linkText": "Service Details"
+            },
+            {
+                "id": 3.4,
+                "link": "/faqs",
+                "linkText": "FAQ's"
+            },
+            {
+                "id": 3.5,
+                "link": "/appointment",
+                "linkText": "Book Appointment"
+            },
+            {
+                "id": 3.6,
+                "link": "/error-page",
+                "linkText": "Error 404"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "linkText": "Clinics",
+        "child": true,
+        "submenu": [
+            {
+                "id": 4.1,
+                "link": "/clinic-grid",
+                "linkText": "Clinics Grid"
+            },
+            {
+                "id": 4.2,
+                "link": "/clinic-list",
+                "linkText": "Clinics List"
+            },
+            {
+                "id": 4.3,
+                "link": "/clinic-details/1",
+                "linkText": "Clinics Details"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "linkText": "Doctors",
+        "child": true,
+        "submenu": [
+            {
+                "id": 5.1,
+                "link": "/doctor-grid",
+                "linkText": "Doctors Grid"
+            },
+            {
+                "id": 5.2,
+                "link": "/doctor-list",
+                "linkText": "Doctors List"
+            },
+            {
+                "id": 5.3,
+                "link": "/doctor-details/1",
+                "linkText": "Doctors Details"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "link": "/contact",
+        "linkText": "Contact Us"
+    }
+]

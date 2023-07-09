@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "title":"Destinations"
+    },
+    {
+        "id":2,
+        "title":"Hotels"
+    },
+    {
+        "id":3,
+        "title":"News"
+    },
+    {
+        "id":4,
+        "title":"StartUp"
+    },
+    {
+        "id":5,
+        "title":"Strategy"
+    }
+]

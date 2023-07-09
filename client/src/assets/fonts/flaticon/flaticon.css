@@ -1,0 +1,170 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?fae8c1d95b6dc4a8cd932ddf867b5349") format("truetype"),
+url("./flaticon.woff?fae8c1d95b6dc4a8cd932ddf867b5349") format("woff"),
+url("./flaticon.woff2?fae8c1d95b6dc4a8cd932ddf867b5349") format("woff2"),
+url("./flaticon.eot?fae8c1d95b6dc4a8cd932ddf867b5349#iefix") format("embedded-opentype"),
+url("./flaticon.svg?fae8c1d95b6dc4a8cd932ddf867b5349#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-accept:before {
+    content: "\f101";
+}
+.flaticon-air-freight:before {
+    content: "\f102";
+}
+.flaticon-airplane:before {
+    content: "\f103";
+}
+.flaticon-ambulance-1:before {
+    content: "\f104";
+}
+.flaticon-ambulance-2:before {
+    content: "\f105";
+}
+.flaticon-ambulance:before {
+    content: "\f106";
+}
+.flaticon-arrow:before {
+    content: "\f107";
+}
+.flaticon-back-1:before {
+    content: "\f108";
+}
+.flaticon-back-2:before {
+    content: "\f109";
+}
+.flaticon-back:before {
+    content: "\f10a";
+}
+.flaticon-calendar:before {
+    content: "\f10b";
+}
+.flaticon-call:before {
+    content: "\f10c";
+}
+.flaticon-checklist:before {
+    content: "\f10d";
+}
+.flaticon-clipboard:before {
+    content: "\f10e";
+}
+.flaticon-close:before {
+    content: "\f10f";
+}
+.flaticon-doctor-1:before {
+    content: "\f110";
+}
+.flaticon-doctor:before {
+    content: "\f111";
+}
+.flaticon-download:before {
+    content: "\f112";
+}
+.flaticon-envelope:before {
+    content: "\f113";
+}
+.flaticon-event:before {
+    content: "\f114";
+}
+.flaticon-group:before {
+    content: "\f115";
+}
+.flaticon-health-check:before {
+    content: "\f116";
+}
+.flaticon-heart-1:before {
+    content: "\f117";
+}
+.flaticon-heart:before {
+    content: "\f118";
+}
+.flaticon-heartbeat:before {
+    content: "\f119";
+}
+.flaticon-home:before {
+    content: "\f11a";
+}
+.flaticon-hospital-1:before {
+    content: "\f11b";
+}
+.flaticon-hospital-2:before {
+    content: "\f11c";
+}
+.flaticon-hospital-bed:before {
+    content: "\f11d";
+}
+.flaticon-hospital:before {
+    content: "\f11e";
+}
+.flaticon-location:before {
+    content: "\f11f";
+}
+.flaticon-mail:before {
+    content: "\f120";
+}
+.flaticon-man:before {
+    content: "\f121";
+}
+.flaticon-medical-record:before {
+    content: "\f122";
+}
+.flaticon-medicine:before {
+    content: "\f123";
+}
+.flaticon-menu-1:before {
+    content: "\f124";
+}
+.flaticon-menu:before {
+    content: "\f125";
+}
+.flaticon-message:before {
+    content: "\f126";
+}
+.flaticon-next:before {
+    content: "\f127";
+}
+.flaticon-pharmacy:before {
+    content: "\f128";
+}
+.flaticon-phone-call:before {
+    content: "\f129";
+}
+.flaticon-phone:before {
+    content: "\f12a";
+}
+.flaticon-pills:before {
+    content: "\f12b";
+}
+.flaticon-shopping-cart:before {
+    content: "\f12c";
+}
+.flaticon-stethoscope:before {
+    content: "\f12d";
+}
+.flaticon-team:before {
+    content: "\f12e";
+}
+.flaticon-teamwork:before {
+    content: "\f12f";
+}
+.flaticon-tick:before {
+    content: "\f130";
+}
+.flaticon-upload:before {
+    content: "\f131";
+}
+.flaticon-user:before {
+    content: "\f132";
+}
