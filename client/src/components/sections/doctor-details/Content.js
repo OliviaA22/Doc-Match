@@ -46,6 +46,10 @@ class Content extends Component {
                                                             <i className="fal fa-building" />
                                                             {item.location}
                                                         </span>
+                                                        <span>
+                                                            <i className="fal fa-language" />
+                                                            {item.languages.join(', ')}
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>

@@ -70,6 +70,12 @@ class Content extends Component {
                                         <b key={i}>{data}, </b>
                                     ))}
                                 </span>
+                                <span>
+                                    <i className="fal fa-language" />
+                                    {item.languages && item.languages.map((language, i) => (
+                                        <b key={i}>{language}, </b>
+                                    ))}
+                                </span>
                             </div>
                             <div className="sigma_rating">
                                 {Rating(item.rating)}
