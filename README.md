@@ -50,5 +50,3 @@
 
 8. Contact Information:
     - For any questions, suggestions, or issues, please feel free to reach out to us.
-
-Remember to update the descriptions with any specific details or instructions related to your project.
