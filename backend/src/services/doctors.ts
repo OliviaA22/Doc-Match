@@ -17,7 +17,7 @@ class DoctorService {
   //   return doctor;
   // }
 
-  async findNearbyDoctors(location: any, radius:any){
+  async findNearbyDoctors(location: any, radius:any, language:any, specialization:any){
     const doctors = await Doctor.find({
       "address.location":{
         $near: {
