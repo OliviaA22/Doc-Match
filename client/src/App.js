@@ -25,6 +25,8 @@ const Clinicdetails = React.lazy(() => import("./components/pages/Clinicdetails"
 const Doctorgrid = React.lazy(() => import("./components/pages/Doctorgrid"));
 const Doctorlist = React.lazy(() => import("./components/pages/Doctorlist"));
 const Doctordetails = React.lazy(() => import("./components/pages/Doctordetails"));
+// Doctor Management
+const DoctorManagement = React.lazy(() => import('./components/pages/DoctorManagement'));
 // Contact
 const Contact = React.lazy(() => import("./components/pages/Contact"));
 // Extra
@@ -77,6 +79,8 @@ function App() {
             <Route exact path="/doctor-grid" component={Doctorgrid} />
             <Route exact path="/doctor-list" component={Doctorlist} />
             <Route exact path="/doctor-details/:id" component={props => (<Doctordetails {...props} key={window.location.pathname} />)} />
+            {/* Doctor Management */}
+            <Route exact path="/doctor-management" component={DoctorManagement} />
             {/* Contact */}
             <Route exact path="/contact" component={Contact} />
             {/* Extra */}
