@@ -8,9 +8,9 @@
 
    - **Project Title**: DocMatch - Find Nearby Doctors
 
-   - **Description**: DocMatch is an LGBT friendly web application that allows users to find nearby doctors based on their location and preferred language. It provides a convenient way for users to search for doctors located in close proximity with whom they can seamlessly communicate with.
-   - 
-   - **Objective**: Provide a comprehensive directory of healthcare providers in the region, such as general practitioners, pschologists, dentists, and other specialists. Allow users to search for providers based on their location, specialty, language and other criteria. Enable patients to schedule appointments with providers directly through the app. Offer patient reviews and ratings of providers to help other patients make informed decisions. Facilitate continuous communication between patients and providers through secure messaging and telemedicine features.
+   - **Description**: DocMatch is an LGBTQ-friendly web application that allows users to find nearby doctors based on their location and preferred language. It provides a convenient way for users to search for doctors located in close proximity with whom they can seamlessly communicate.
+
+   - **Objective**: Provide a comprehensive directory of healthcare providers in the region, such as general practitioners, psychologists, dentists, and other specialists. Allow users to search for providers based on their location, specialty, language, and other criteria. Enable patients to schedule appointments with providers directly through the app. Offer patient reviews and ratings of providers to help other patients make informed decisions. Facilitate continuous communication between patients and providers through secure messaging and telemedicine features.
 
 3. Features and Functionality:
 
