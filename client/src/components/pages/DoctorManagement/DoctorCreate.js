@@ -26,10 +26,12 @@ const DoctorCreate = () => {
       let newArray = [...doctor[field]];
       newArray[index] = e.target.value;
       setDoctor({ ...doctor, [field]: newArray });
+    } else if (field === 'specialisation' || field === 'language') {
+      setDoctor({ ...doctor, [field]: [...doctor[field], ''] });
     } else {
       setDoctor({ ...doctor, [e.target.name]: e.target.value });
     }
-  };
+  };  
 
   const handleAddressChange = (e) => {
     setDoctor({ ...doctor, address: { ...doctor.address, [e.target.name]: e.target.value } });
@@ -43,23 +45,29 @@ const DoctorCreate = () => {
       .catch((error) => console.error(error));
   };
 
+  const handleRemoveItem = (index, field) => {
+    const newArray = [...doctor[field]];
+    newArray.splice(index, 1);
+    setDoctor({ ...doctor, [field]: newArray });
+  };  
+
   return (
     <div style={styles.container}>
       <form onSubmit={handleSubmit} style={styles.form}>
-        <label>
-          Title:
+        <div style={styles.inputContainer}>
+          <label style={styles.inputLabel}>Title:</label>
           <input type="text" name="title" value={doctor.title} onChange={handleChange} style={styles.input} />
-        </label>
-        <label>
-          First Name:
+        </div>
+        <div style={styles.inputContainer}>
+          <label style={styles.inputLabel}>First Name:</label>
           <input type="text" name="firstName" value={doctor.firstName} onChange={handleChange} style={styles.input} />
-        </label>
-        <label>
-          Last Name:
+        </div>
+        <div style={styles.inputContainer}>
+          <label style={styles.inputLabel}>Last Name:</label>
           <input type="text" name="lastName" value={doctor.lastName} onChange={handleChange} style={styles.input} />
-        </label>
-        <label>
-          Address:
+        </div>
+        <div style={styles.inputContainer}>
+          <label style={styles.inputLabel}>Address:</label>
           <input
             type="text"
             name="street"
@@ -100,29 +108,49 @@ const DoctorCreate = () => {
             placeholder="Country"
             style={styles.input}
           />
-        </label>
+        </div>
+        <div style={styles.inputContainer}>
         <label>
           Specialisation:
           {doctor.specialisation.map((speciality, index) => (
-            <input
-              type="text"
-              value={speciality}
-              onChange={(e) => handleChange(e, index, 'specialisation')}
-              style={styles.input}
-            />
+            <div style={styles.inputContainer} key={index}>
+              <input
+                type="text"
+                value={speciality}
+                onChange={(e) => handleChange(e, index, 'specialisation')}
+                style={styles.input}
+              />
+              <button type="button" onClick={() => handleRemoveItem(index, 'specialisation')}>
+                Remove
+              </button>
+            </div>
           ))}
+          <button type="button" onClick={() => handleChange(null, null, 'specialisation')}>
+            Add Specialisation
+          </button>
         </label>
+        </div>
+        <div style={styles.inputContainer}>
         <label>
           Languages:
           {doctor.language.map((language, index) => (
-            <input
-              type="text"
-              value={language}
-              onChange={(e) => handleChange(e, index, 'language')}
-              style={styles.input}
-            />
+            <div style={styles.inputContainer} key={index}>
+              <input
+                type="text"
+                value={language}
+                onChange={(e) => handleChange(e, index, 'language')}
+                style={styles.input}
+              />
+              <button type="button" onClick={() => handleRemoveItem(index, 'language')}>
+                Remove
+              </button>
+            </div>
           ))}
+          <button type="button" onClick={() => handleChange(null, null, 'language')}>
+            Add Language
+          </button>
         </label>
+        </div>
         <button type="submit" style={styles.button}>Create Doctor</button>
       </form>
     </div>
