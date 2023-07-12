@@ -74,7 +74,8 @@ class DoctorController {
       //   skip = Number(req.query.limit);
       // }
 
-      const {latitude, longitude, radius} = req.query
+      const {latitude, longitude, radius, language,
+        specialization} = req.query
       
       //parse the radius value as a number
       const radiusInMeters = parseInt(radius as string)* 1000
@@ -89,7 +90,8 @@ class DoctorController {
       }
 
       const service = new DoctorService();
-      const doctors = await service.findNearbyDoctors(userLocation, radiusInMeters, );
+      const doctors = await service.findNearbyDoctors(userLocation, radiusInMeters, language,
+        specialization );
       res.status(200).json(doctors);
     } catch (error) {
       next(error);
@@ -109,6 +111,53 @@ class DoctorController {
       const service = new DoctorService();
       const doctor = await service.getById(req.params.id);
       res.status(200).json(doctor);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+
+  /**
+   * Search for doctors based on address, language, and specialization
+   * @param req The http request
+   * @param res The http response
+   * @returns
+   */
+  async search(req: Request, res: Response, next: any) {
+    try {
+      const { address, language, specialisation, radius } = req.query;
+
+      // Perform geocoding to convert the address into geographic coordinates
+      const geocodingResponse = await axios.get(
+        "http://api.positionstack.com/v1/forward",
+        {
+          params: {
+            access_key: process.env.ACCESS_KEY,
+            query: address,
+          },
+        }
+      );
+
+      const lat = geocodingResponse.data.data[0].latitude;
+      const lng = geocodingResponse.data.data[0].longitude;
+
+      const userLocation = {
+        type: "Point",
+        coordinates: [lng, lat],
+      };
+
+      // Parse the radius value as a number and convert to meters
+      const radiusInMeters = parseInt(radius as string) * 1000;
+
+      const service = new DoctorService();
+      const doctors = await service.findNearbyDoctors(
+        userLocation,
+        radiusInMeters,
+        language,
+        specialisation
+      );
+
+      res.status(200).json(doctors);
     } catch (error) {
       next(error);
     }

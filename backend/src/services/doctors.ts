@@ -17,16 +17,27 @@ class DoctorService {
   //   return doctor;
   // }
 
-  async findNearbyDoctors(location: any, radius:any){
-    const doctors = await Doctor.find({
-      "address.location":{
+  async findNearbyDoctors(location: any, radius:any, language:any, specialisation:any){
+    console.log(language, specialisation)
+    const query:any = {
+      "address.location": {
         $near: {
           $geometry: location,
           $maxDistance: radius,
         },
-      }
-    }).exec();
-    return doctors
+      },
+    };
+  
+    if (Array.isArray(language) && language.length > 0) {
+      query.language = { $in: language }; // Only include doctors with any of the specified languages
+    }
+  
+    if (specialisation) {
+      query.specialisation = specialisation; // Only include doctors with matching specialization
+    }
+  
+    const doctors = await Doctor.find(query).exec();
+    return doctors;
   };
 
   async getById(id: string) {
