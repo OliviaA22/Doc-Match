@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const DoctorDelete = ({ match }) => {
     const handleDelete = () => {
-        axios.delete(`/api/doctors/${match.params.id}`).then(response => console.log(response));
+        axios.delete(`http://localhost:5000/api/doctors/${match.params.id}`).then(response => console.log(response));
     }
 
     return (

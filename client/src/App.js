@@ -17,14 +17,8 @@ const Servicedetails = React.lazy(() => import("./components/pages/Servicedetail
 const Faqs = React.lazy(() => import("./components/pages/Faqs"));
 // Appointment
 const Appointment = React.lazy(() => import("./components/pages/Appointment"));
-// Clinics
-const Clinicgrid = React.lazy(() => import("./components/pages/Clinicgrid"));
-const Cliniclist = React.lazy(() => import("./components/pages/Cliniclist"));
-const Clinicdetails = React.lazy(() => import("./components/pages/Clinicdetails"));
 // Doctors
 const Doctorgrid = React.lazy(() => import("./components/pages/Doctorgrid"));
-const Doctorlist = React.lazy(() => import("./components/pages/Doctorlist"));
-const Doctordetails = React.lazy(() => import("./components/pages/Doctordetails"));
 // Doctor Management
 const DoctorCreate = React.lazy(() => import('./components/pages/DoctorManagement/DoctorCreate'));
 const DoctorRead = React.lazy(() => import('./components/pages/DoctorManagement/DoctorRead'));
@@ -72,16 +66,9 @@ function App() {
             <Route exact path="/faqs" component={Faqs} />
             {/* Appointment */}
             <Route exact path="/appointment" component={Appointment} />
-            {/* Clinics */}
-            <Route exact path="/clinic/cat/:catId" component={props => (<Clinicgrid {...props} key={window.location.pathname} />)} />
-            <Route exact path="/clinic-grid" component={Clinicgrid} />
-            <Route exact path="/clinic-list" component={Cliniclist} />
-            <Route exact path="/clinic-details/:id" component={props => (<Clinicdetails {...props} key={window.location.pathname} />)} />
             {/* Doctors */}
             <Route exact path="/doctor/cat/:catId" component={props => (<Doctorgrid {...props} key={window.location.pathname} />)} />
             <Route exact path="/doctor-grid" component={Doctorgrid} />
-            <Route exact path="/doctor-list" component={Doctorlist} />
-            <Route exact path="/doctor-details/:id" component={props => (<Doctordetails {...props} key={window.location.pathname} />)} />
             {/* Doctormanagement */}
             <Route exact path="/doctor-management/create" component={DoctorCreate} />
             <Route exact path="/doctor-management/read" component={DoctorRead} />
