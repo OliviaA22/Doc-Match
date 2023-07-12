@@ -63,6 +63,9 @@ doctorRouter.post(
  */
 doctorRouter.get("/", doctorController.get);
 
+
+doctorRouter.get("/search", doctorController.search);
+
 /**
  * @openapi
  * '/doctor':
