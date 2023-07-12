@@ -125,7 +125,7 @@ class DoctorController {
    */
   async search(req: Request, res: Response, next: any) {
     try {
-      const { address, language, specialization, radius } = req.query;
+      const { address, language, specialisation, radius } = req.query;
 
       // Perform geocoding to convert the address into geographic coordinates
       const geocodingResponse = await axios.get(
@@ -154,7 +154,7 @@ class DoctorController {
         userLocation,
         radiusInMeters,
         language,
-        specialization
+        specialisation
       );
 
       res.status(200).json(doctors);

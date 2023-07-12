@@ -8,5 +8,6 @@ export default function routes(app: Application): void {
   app.use("/api/v1/user", userRouter);
   app.use("/api/v1/blog", blogPostRouter);
   app.use("/api/v1/doctor", doctorRouter);
+  app.use("/api/v1/search", doctorRouter);
   app.use("/api/v1/appointment", appointmentRouter);
 }
