@@ -2,11 +2,14 @@
   "name": "doc-match",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "homepage": "/Doc-Match",
   "dependencies": {
+    "@mui/material": "^5.14.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^1.4.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "magnific-popup": "^1.1.0",
@@ -49,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

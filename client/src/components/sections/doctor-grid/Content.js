@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import doctorpost from '../../../data/doctor/doctor.json';
-import { getFilteredPosts } from '../../../helper/doctorHelper';
-import { Rating } from '../../../helper/helper';
+import axios from 'axios';
 import Sidebar from '../../layouts/Doctorsidebar';
 import Pagination from "react-js-pagination";
 
@@ -10,62 +7,67 @@ class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: this.getPosts(),
+            data: [],
             activePage: 1,
             itemPerpage: 4,
             favorite: false
         }
         this.favoriteTrigger = this.favoriteTrigger.bind(this);
     }
-    getPosts() {
-        var cat = this.props.catId ? this.props.catId : '';
-        var filteredItems = getFilteredPosts(doctorpost, { cat });
-        return filteredItems;
+    
+    componentDidMount() {
+        axios.get('http://localhost:5000/api/v1/doctor')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ data: response.data });
+                    console.log("Data has been received!!");
+                } else {
+                    console.log('Data not received, status code:', response.status);
+                }
+            })
+            .catch(error => {
+                console.log('An error occurred:', error.message);
+                this.setState({ error: error.message });
+            });
     }
+    
+
     handlePageChange(pageNumber) {
         this.setState({ activePage: pageNumber });
     }
+
     favoriteTrigger(item) {
         this.setState({ favorite: item });
         if (this.state.favorite === item) {
             this.setState({ favorite: null })
         }
     }
+
     render() {
         const paginationData = this.state.data.slice((this.state.activePage - 1) * this.state.itemPerpage, this.state.activePage * this.state.itemPerpage).map((item, i) => {
             return <div className="col-lg-6 col-md-6" key={i}>
                 <div className="sigma_team style-16">
-                    <div className="sigma_team-thumb">
-                        <img src={process.env.PUBLIC_URL + "/" + item.image} alt={item.name} />
-                        <div className="sigma_team-controls">
-                            <Link to="#" className={this.state.favorite === item ? 'active' : ''} onClick={(e) => this.favoriteTrigger(item)}>
-                                <i className="fal fa-heart" />
-                            </Link>
-                        </div>
-                    </div>
                     <div className="sigma_team-body">
                         <h5>
-                            <Link to={"/doctor-details/" + item.id}>{item.name}</Link>
+                            {item.title} {item.firstName} {item.lastName}
                         </h5>
-                        <div className="sigma_rating">
-                            {Rating(item.rating)}
-                            <span className="ml-3">({item.reviews.length})</span>
-                        </div>
                         <div className="sigma_team-categories">
-                            <Link to={"/doctor-details/" + item.id} className="sigma_team-category">{item.specialist}</Link>
+                            {item.specialisation.join(', ')}
                         </div>
                         <div className="sigma_team-info">
                             <span>
                                 <i className="fal fa-map-marker-alt" />
-                                {item.location}
+                                {`${item.address.street}, ${item.address.city}, ${item.address.postcode}, ${item.address.state}, ${item.address.country}`}
                             </span>
                         </div>
-                        <Link to={"/doctor-details/" + item.id} className="sigma_btn btn-block btn-sm">View
-                            More</Link>
+                        <div className="sigma_team-info">
+                            <span>Languages: {item.language.join(', ')}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         });
+
         return (
             <div className="sidebar-style-9">
                 <div className="section section-padding">

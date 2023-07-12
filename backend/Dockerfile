@@ -24,4 +24,3 @@ EXPOSE 5000
 
 # Set the command to start the backend server
 CMD ["npm", "run", "dev"]
-

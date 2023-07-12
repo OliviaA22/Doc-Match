@@ -239,25 +239,25 @@ class Content extends Component {
                                                 </li>
                                                 <li className="d-flex align-items-center justify-content-between">
                                                     <span>Doctor Name</span>
-                                                    <span>Dr. Joseph Doe</span>
+                                                    <span>Dr. Johnson Clever</span>
                                                 </li>
                                             </ul>
                                             <hr />
                                             <ul>
                                                 <li className="d-flex align-items-center justify-content-between">
                                                     <span>Lorem ipsum dolor</span>
-                                                    <span>$80</span>
+                                                    <span>£10</span>
                                                 </li>
                                                 <li className="d-flex align-items-center justify-content-between">
                                                     <span>Lorem ipsum dolor</span>
-                                                    <span>$140</span>
+                                                    <span>£10</span>
                                                 </li>
                                             </ul>
                                             <hr />
                                             <ul>
                                                 <li className="d-flex align-items-center justify-content-between">
                                                     <span className="secondary-color"><b>Total</b></span>
-                                                    <span className="secondary-color"><b>$220</b></span>
+                                                    <span className="secondary-color"><b>£20</b></span>
                                                 </li>
                                                 <li className="d-flex align-items-center justify-content-between">
                                                     <button type="submit" className="sigma_btn btn-block btn-sm mt-4">
