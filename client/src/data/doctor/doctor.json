@@ -4,7 +4,7 @@
         "name": "Johnson Clever",
         "image":"assets/img/doctors-grid/348x350-0.jpg",
         "rating": 5,
-        "specialist": "Gynaecology",
+        "specialist": "Software Developer",
         "location": "Munich",
         "qualification": "Deggendorf University of Technology",
         "languages": ["English", "German"],
@@ -19,124 +19,14 @@
         "fees": 100,
         "category": [1,2],
         "phone": "(767)033-9367",
-        "email": "40ndgc2@gmail.com",
-        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
-        "reviews": [
-            {
-                "user": [
-                    1
-                ],
-                "commentdate": "07 Feburary",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    2
-                ],
-                "commentdate": "07 March",
-                "rating": 5,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    3
-                ],
-                "commentdate": "07 December",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-        ],
-        "social":[
-            {
-                "icon":"fab fa-facebook-f",
-                "title":"Facebook",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-twitter",
-                "title":"Twitter",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-instagram",
-                "title":"Instagram",
-                "url":"/"
-            }
-        ]
+        "email": "40ndgc2@gmail.com"
     },
     {
         "id": 2,
-        "name": "John Paul",
-        "image":"assets/img/doctors-grid/348x350-1.jpg",
-        "rating": 4,
-        "specialist": "Dentistry",
-        "location": "Kampala",
-        "qualification": "University of Maryland",
-        "languages": ["Luganda", "German"],
-        "experience": 5,
-        "available": [
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri"
-        ],
-        "gender": "Male",
-        "fees": "",
-        "category": [3,4],
-        "phone": "(741)376-5672",
-        "email": "johnson.ggalabuzi@stud.th-deg.de",
-        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
-        "reviews": [
-            {
-                "user": [
-                    1
-                ],
-                "commentdate": "12 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    2
-                ],
-                "commentdate": "20 March",
-                "rating": 5,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    3
-                ],
-                "commentdate": "08 April",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-        ],
-        "social":[
-            {
-                "icon":"fab fa-facebook-f",
-                "title":"Facebook",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-twitter",
-                "title":"Twitter",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-instagram",
-                "title":"Instagram",
-                "url":"/"
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "name": "Daphine Kellen",
+        "name": "Olivia Okoro",
         "image":"assets/img/doctors-grid/348x350-2.jpg",
         "rating": 5,
-        "specialist": "Cardiology",
+        "specialist": "Web Developer",
         "location": "Munich",
         "qualification": "Technical University of Munich",
         "languages": ["English", "Luganda"],
@@ -151,59 +41,15 @@
         "fees": 60,
         "category": [1,5],
         "phone": "(741)376-5672",
-        "email": "kellen@gmail.com",
-        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
-        "reviews": [
-            {
-                "user": [
-                    1
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    2
-                ],
-                "commentdate": "07 March",
-                "rating": 5,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    3
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-        ],
-        "social":[
-            {
-                "icon":"fab fa-facebook-f",
-                "title":"Facebook",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-twitter",
-                "title":"Twitter",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-instagram",
-                "title":"Instagram",
-                "url":"/"
-            }
-        ]
+        "email": "kellen@gmail.com"
     },
     {
-        "id": 4,
-        "name": "Elizabeth Betty",
+        "id": 3,
+        "name": "Ariana Maria",
         "image":"assets/img/doctors-grid/348x350-3.jpg",
         "rating": 4,
-        "specialist": "Surgery",
-        "location": "United Kingdom",
+        "specialist": "Business",
+        "location": "Munich",
         "qualification": "University of Liverpool",
         "languages": ["German", "English"],
         "experience": 5,
@@ -212,59 +58,15 @@
         "fees": 40,
         "category": [2,3],
         "phone": "(741)376-5672",
-        "email": "elizabeth2@ymail.com",
-        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
-        "reviews": [
-            {
-                "user": [
-                    1
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    2
-                ],
-                "commentdate": "07 March",
-                "rating": 5,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    3
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-        ],
-        "social":[
-            {
-                "icon":"fab fa-facebook-f",
-                "title":"Facebook",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-twitter",
-                "title":"Twitter",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-instagram",
-                "title":"Instagram",
-                "url":"/"
-            }
-        ]
+        "email": "elizabeth2@ymail.com"
     },
     {
-        "id": 5,
-        "name": "Irene Maria",
+        "id": 4,
+        "name": "Velcu Teona",
         "image":"assets/img/doctors-grid/348x350-4.jpg",
         "rating": 4,
-        "specialist": "Radiology",
-        "location": "Kampla",
+        "specialist": "Product Manager",
+        "location": "Munich",
         "qualification": "Makerere University",
         "languages": ["Kiswahili", "Spanish"],
         "experience": 5,
@@ -278,111 +80,6 @@
         "fees": "",
         "category": [4,5],
         "phone": "(741)376-5672",
-        "email": "maria@gmail.com",
-        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
-        "reviews": [
-            {
-                "user": [
-                    1
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    2
-                ],
-                "commentdate": "07 March",
-                "rating": 5,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    3
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-        ],
-        "social":[
-            {
-                "icon":"fab fa-facebook-f",
-                "title":"Facebook",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-twitter",
-                "title":"Twitter",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-instagram",
-                "title":"Instagram",
-                "url":"/"
-            }
-        ]
-    },
-    {
-        "id": 6,
-        "name": "Al-Nahyan Omais",
-        "image":"assets/img/doctors-grid/348x350-5.jpg",
-        "rating": 5,
-        "specialist": "Therapy",
-        "location": "Mombasa",
-        "qualification": "University of California San Francisco Parnassus Campus",
-        "languages": ["English", "Kiswahili", "German"],
-        "experience": 5,
-        "available": [],
-        "gender": "Male",
-        "fees": 50,
-        "category": [1,2],
-        "phone": "(741)376-5672",
-        "email": "aomais@gmail.com",
-        "htmltext": "<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><div class='spacer'></div><h4>Subspecialities</h4><p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p><div class='row'><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div><div class='col-lg-6'><div class='sigma_general-list style-3'><ul><li> <i class='far fa-check'></i> <span>Best Fitness Excercises</span></li><li> <i class='far fa-check'></i> <span>Combine Fitness and Lifestyle</span></li><li> <i class='far fa-check'></i> <span>Achieve a Specific Goal</span></li></ul></div></div></div>",
-        "reviews": [
-            {
-                "user": [
-                    1
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    2
-                ],
-                "commentdate": "07 March",
-                "rating": 5,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            },
-            {
-                "user": [
-                    3
-                ],
-                "commentdate": "07 March",
-                "rating": 4,
-                "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-        ],
-        "social":[
-            {
-                "icon":"fab fa-facebook-f",
-                "title":"Facebook",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-twitter",
-                "title":"Twitter",
-                "url":"/"
-            },
-            {
-                "icon":"fab fa-instagram",
-                "title":"Instagram",
-                "url":"/"
-            }
-        ]
+        "email": "maria@gmail.com"
     }
 ]
