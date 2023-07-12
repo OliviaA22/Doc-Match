@@ -3,9 +3,46 @@ import Navhelper from '../../helper/NavHelper';
 import Mobilemenu from './Mobilemenu';
 import { Link } from 'react-router-dom';
 import navigation from '../../data/navigation.json';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import Register from './Register';
+import Login from './Login';
+import { AuthContext } from '../contexts/authContext';
 
 class Header extends Navhelper {
+    static contextType = AuthContext;
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...this.state,
+            registerModalIsOpen: false,
+            loginModalIsOpen: false,
+        };
+    }
+
+    openRegisterModal = () => {
+        this.setState({ registerModalIsOpen: true });
+    }
+
+    closeRegisterModal = () => {
+        this.setState({ registerModalIsOpen: false });
+    }
+
+    openLoginModal = () => {
+        this.setState({ loginModalIsOpen: true });
+    }
+
+    closeLoginModal = () => {
+        this.setState({ loginModalIsOpen: false });
+    }
+
+    handleLogout = () => {
+        this.context.logout();
+      }
+
     render() {
+        const { user } = this.context;
         return (
             <Fragment>
                 {/* Mobile Menu */}
@@ -104,12 +141,46 @@ class Header extends Navhelper {
                                                 <i className="far fa-search" />
                                             </Link>
                                         </li>
-                                        <li className="d-none d-sm-block">
-                                            <Link to="/contact" className="sigma_btn btn-sm">
-                                                Reach Out
-                                                <i className="fal fa-arrow-right" />
-                                            </Link>
-                                        </li>
+                                        {!user ? (
+                                            <>
+                                            <li className="d-none d-sm-block">
+                                                <button onClick={this.openLoginModal} className="sigma_btn btn-sm">
+                                                    Login
+                                                    <i className="fal fa-sign-in-alt" />
+                                                </button>
+                                                <Dialog open={this.state.loginModalIsOpen} onClose={this.closeLoginModal} aria-labelledby="form-dialog-title">
+                                                    <DialogTitle id="form-dialog-title">Login</DialogTitle>
+                                                    <DialogContent>
+                                                        <Login />
+                                                    </DialogContent>
+                                                </Dialog>
+                                            </li>
+                                            <li className="d-none d-sm-block">
+                                                <button onClick={this.openRegisterModal} className="sigma_btn btn-sm">
+                                                    Register
+                                                    <i className="fal fa-user-plus" />
+                                                </button>
+                                                <Dialog open={this.state.registerModalIsOpen} onClose={this.closeRegisterModal} aria-labelledby="form-dialog-title">
+                                                    <DialogTitle id="form-dialog-title">Register</DialogTitle>
+                                                    <DialogContent>
+                                                        <Register />
+                                                    </DialogContent>
+                                                </Dialog>
+                                            </li>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <li className="d-none d-sm-block">
+                                                    Hello, {user.firstName}
+                                                </li>
+                                                <li className="d-none d-sm-block">
+                                                    <button onClick={this.handleLogout} className="sigma_btn btn-sm">
+                                                        Logout
+                                                        <i className="fal fa-sign-out-alt" />
+                                                    </button>
+                                                </li>
+                                            </>
+                                        )}
                                         <li className="aside-toggle aside-trigger" onClick={this.toggleNav}>
                                             <span />
                                             <span />
@@ -122,20 +193,6 @@ class Header extends Navhelper {
                     </div>
                 </header>
                 {/* Header */}
-                {/* Search Bar */}
-                <div className={this.state.searchMethod === true ? 'search-form-wrapper open' : 'search-form-wrapper'}>
-                    <div className="search-trigger sigma_close" onClick={this.toggleSearch}>
-                        <span />
-                        <span />
-                    </div>
-                    <form className="search-form">
-                        <input type="text" placeholder="Search..." required />
-                        <button type="submit" className="search-btn">
-                            <i className="fal fa-search m-0" />
-                        </button>
-                    </form>
-                </div>
-                {/* Search Bar */}
             </Fragment>
         );
     }

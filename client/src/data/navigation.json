@@ -62,11 +62,6 @@
                 "id": 3.5,
                 "link": "/appointment",
                 "linkText": "Book Appointment"
-            },
-            {
-                "id": 3.6,
-                "link": "/error-page",
-                "linkText": "Error 404"
             }
         ]
     },

@@ -7,7 +7,7 @@ const settings = {
     slidesToShow: 5,
     slidesToScroll: 1,
     arrows: false,
-    dots: false,
+    dots: true,
     autoplay: true,
     centerMode: true,
     centerPadding: 0,
