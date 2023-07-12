@@ -1,26 +1,26 @@
-# Use the base Node.js 14 image
+# Use an appropriate base image for the application
 FROM node:14
 
 # Set the working directory inside the container
 WORKDIR /usr/src/backend
 
-# Copy the package.json and package-lock.json files
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the source code
+# Copy the entire backend directory to the working directory
 COPY . .
 
-# Copy the server.ts file
-COPY backend/src/server.ts .
+# Copy the .env file to the working directory
+COPY .env ./
 
-# Build the TypeScript files
+# Build TypeScript code
 RUN npm run build
 
-# Specify the application port
+# Expose the port on which the backend server listens
 EXPOSE 5000
 
-# Specify the command to run your application
-CMD [ "node", "dist/server.js" ]
+# Set the command to start the backend server
+CMD ["npm", "run", "dev"]
