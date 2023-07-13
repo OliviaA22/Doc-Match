@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Sidebar from '../../layouts/Doctorsidebar';
 import Pagination from "react-js-pagination";
+import jwt from 'jsonwebtoken';
 
 class Content extends Component {
     constructor(props) {
@@ -16,8 +17,27 @@ class Content extends Component {
     }
     
     componentDidMount() {
-        axios.get('http://localhost:5000/api/v1/doctor')
-            .then(response => {
+// Retrieve the token from local storage
+const token = localStorage.getItem('token');
+
+
+// Decode the token to extract user data
+const user = jwt.decode(token);
+console.log(user.userLocation.location.coordinates[1], user.userLocation.location.coordinates[0])
+
+
+
+        axios.get('http://localhost:5000/api/v1/doctor', {
+            params: {
+                latitude: user.userLocation.location.coordinates[1],
+                longitude: user.userLocation.location.coordinates[0],
+                radius: 500,
+                
+              },
+              
+              
+        })
+        .then(response => {
                 if (response.status === 200) {
                     this.setState({ data: response.data });
                     console.log("Data has been received!!");

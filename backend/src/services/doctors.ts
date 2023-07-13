@@ -18,7 +18,7 @@ class DoctorService {
   // }
 
   async findNearbyDoctors(location: any, radius:any, language:any, specialisation:any){
-    console.log(language, specialisation)
+    
     const query:any = {
       "address.location": {
         $near: {

@@ -39,10 +39,24 @@ const Register = () => {
       setUser(res.data.user);
 
       setStatus('Success');
+      resetForm()
     } catch (err) {
       console.error(err);
       setStatus('Not successful');
     }
+  };
+
+  const resetForm = () => {
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
+    setStreet('');
+    setCity('');
+    setPostcode('');
+    setState('');
+    setCountry('');
+    setLanguage('');
   };
 
   const cardStyle = {
