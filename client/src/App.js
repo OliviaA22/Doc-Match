@@ -72,7 +72,7 @@ function App() {
               {/* FAQ's */}
               <Route exact path="/faqs" component={Faqs} />
               {/* Appointment */}
-              <PrivateRoute exact path="/appointment" component={Appointment} />
+              <Route exact path="/appointment" component={Appointment} />
               {/* Doctors */}
               <Route exact path="/doctor/cat/:catId" component={props => (<Doctorgrid {...props} key={window.location.pathname} />)} />
               <PrivateRoute exact path="/doctor-grid" component={Doctorgrid} />

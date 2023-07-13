@@ -5,8 +5,6 @@ import Services from './Services';
 import Whyus from './Whyus';
 import Counter from './Counter';
 import Servicesimage from './Servicesimage';
-import Newsletter from './Newsletter';
-import Clients from './Clients';
 import Workprocess from './Workprocess';
 import Team from './Team';
 import Testimonials from './Testimonials';
@@ -33,16 +31,6 @@ class Content extends Component {
                             <h3 className="title">Our Offerings</h3>
                         </div>
                         <Servicesimage />
-                        <div className="margin-negative">
-                            <div className="row">
-                                <div className="col-lg-6">
-                                    <Newsletter />
-                                </div>
-                                <div className="col-lg-6">
-                                    <Clients />
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div className="section section-padding" />

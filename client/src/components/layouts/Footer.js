@@ -103,9 +103,6 @@ class Footer extends Component {
                                             <Link to="/about">About Us</Link>
                                         </li>
                                         <li>
-                                            <Link to="/blog">News</Link>
-                                        </li>
-                                        <li>
                                             <Link to="/doctor-grid">Doctors</Link>
                                         </li>
                                         <li>

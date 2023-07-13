@@ -23,34 +23,51 @@ const Login = () => {
     }
   };
 
-  const formStyle = {
+  const cardStyle = {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
+    maxWidth: '400px',
+    margin: '0 auto',
+    padding: '20px',
+    backgroundColor: '#fff',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    borderRadius: '8px',
+    marginTop: '50px',
+  };
+
+  const inputContainerStyle = {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridColumnGap: '10px',
+    width: '100%',
+    marginBottom: '10px',
   };
 
   const inputStyle = {
-    marginBottom: '10px',
+    width: '100%',
     padding: '10px',
     borderRadius: '4px',
-    width: '100%',
   };
 
   const buttonStyle = {
-    marginTop: '10px',
-    padding: '10px',
+    cursor: 'pointer',
     backgroundColor: '#007bffa0',
     color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
     width: '100%',
+    padding: '10px',
+    borderRadius: '4px',
   };
 
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
-      <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle} required />
-      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} style={inputStyle} required />
+    <form onSubmit={handleSubmit} style={cardStyle}>
+      <div style={inputContainerStyle}>
+        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle} required />
+      </div>
+      <div style={inputContainerStyle}>
+        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} style={inputStyle} required />
+      </div>
       <Button type="submit" style={buttonStyle}>Login</Button>
     </form>
   );
