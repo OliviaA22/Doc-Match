@@ -31,9 +31,10 @@
    - **Prerequisites**: Make sure you have Node.js and MongoDB installed on your machine for the backend to successfully operate and connect.
    - **Setup Steps**:
      1. Clone the repository: `git clone <repository-url>`
-     2. Navigate to the project directory: `cd DocMatch`
-     3. Install the required dependencies: `npm install`
+     2. Navigate to the project directory: `cd backend` or `cd client`
+     3. Install the required dependencies: `npm install` (for client directory: run `nvm use 14`, then run `npm install`)
      4. To run the backend: `npm run dev`
+     5. To run the frontend: `npm start`
 
 7. Usage:
    - **Searching for Doctors**:

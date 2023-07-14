@@ -39,10 +39,24 @@ const Register = () => {
       setUser(res.data.user);
 
       setStatus('Success');
+      resetForm()
     } catch (err) {
       console.error(err);
       setStatus('Not successful');
     }
+  };
+
+  const resetForm = () => {
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
+    setStreet('');
+    setCity('');
+    setPostcode('');
+    setState('');
+    setCountry('');
+    setLanguage('');
   };
 
   const cardStyle = {
@@ -97,7 +111,7 @@ const Register = () => {
         <input style={inputStyle} type="text" placeholder="City" value={city} onChange={e => setCity(e.target.value)} required />
       </div>
       <div style={inputContainerStyle}>
-        <input style={inputStyle} type="number" placeholder="Postcode" value={postcode} onChange={e => setPostcode(e.target.value)} required />
+        <input style={inputStyle} type="number" placeholder="Postcode" value={postcode} onChange={e => setPostcode(parseInt(e.target.value, 10))} required />
         <input style={inputStyle} type="text" placeholder="State" value={state} onChange={e => setState(e.target.value)} required />
       </div>
       <div style={inputContainerStyle}>

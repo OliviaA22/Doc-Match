@@ -23,7 +23,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "NODE_ENV=dev && nodemon ./src/server.ts",
-    "start": "NODE_ENV=production node ./dist/server.ts"
+    "start": "node ./dist/server.ts"
   },
   "repository": {
     "type": "git",
@@ -31,9 +31,10 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

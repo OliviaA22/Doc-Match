@@ -16,7 +16,9 @@ const Login = () => {
     try {
       const res = await axios.post('http://localhost:5000/api/v1/user/login', { email, password });
       localStorage.setItem('token', res.data.token);
+      console.log(res.data)
       setUser(res.data.user);
+      console.log('successfully logged in')
       history.push('/');
     } catch (err) {
       console.error(err);
@@ -69,6 +71,7 @@ const Login = () => {
         <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} style={inputStyle} required />
       </div>
       <Button type="submit" style={buttonStyle}>Login</Button>
+      <div> welcome </div>
     </form>
   );
 };

@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Copy the .env file to the working directory
-COPY .env ./
+# COPY backend/.env ./
 
 # Build TypeScript code
 RUN npm run build
@@ -24,4 +24,3 @@ EXPOSE 5000
 
 # Set the command to start the backend server
 CMD ["npm", "run", "dev"]
-

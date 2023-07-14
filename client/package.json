@@ -14,6 +14,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
+    "jsonwebtoken": "^9.0.1",
     "magnific-popup": "^1.1.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
