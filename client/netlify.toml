@@ -1,0 +1,19 @@
+
+
+
+[build]
+  command = "npm run build"
+  publish = "client/build" 
+
+# Redirects
+[[redirects]]
+  from = "/*" 
+  to = "/index.html" l
+  status = 200 
+
+
+[build.processing]
+ 
+  [[build.processing.imageProcessing]]
+    
+    include = "**/*"
