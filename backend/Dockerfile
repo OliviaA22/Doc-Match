@@ -24,4 +24,4 @@ ENV NODE_ENV production
 RUN npm run build
 
 # Start the backend server
-CMD ["node", "dist/server.js"]
+CMD ["node", "server.js"]

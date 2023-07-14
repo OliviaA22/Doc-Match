@@ -4,7 +4,7 @@ services:
     build:
       context: ./backend
     ports:
-      - 5000:5000
+      - 5001:5000
     env_file:
       - backend/.env
     depends_on:
