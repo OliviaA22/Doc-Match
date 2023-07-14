@@ -31,9 +31,10 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
