@@ -11,8 +11,7 @@ class Whyus extends Component {
                             <h3 className="title text-white">Why Choose Docfind Clinic?</h3>
                         </div>
                         <div className="sigma_about-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. It is a long established fact that a reader
-                                will be Lorem ipsum dolor sit amet consectetur.</p>
+                            <p>DocMatch is an LGBTQ-friendly web application that allows users to find nearby doctors based on their location and preferred language. It provides a convenient way for users to search for doctors located in close proximity with whom they can seamlessly communicate.</p>
                             {/* Data */}
                             {whyus.slice(0, 2).map((item, i) => (
                                 <div className="sigma_info style-15" key={i}>
