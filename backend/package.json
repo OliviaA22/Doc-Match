@@ -23,7 +23,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "NODE_ENV=dev && nodemon ./src/server.ts",
-    "start": "node ./dist/server.ts"
+    "start": "/server.ts"
   },
   "repository": {
     "type": "git",
