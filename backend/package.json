@@ -21,9 +21,9 @@
   "version": "1.0.0",
   "main": "src/server.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && mkdir -p dist && mv ./path/to/compiled/files ./dist",
     "dev": "NODE_ENV=dev && nodemon ./src/server.ts",
-    "start": "node /server.ts"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
