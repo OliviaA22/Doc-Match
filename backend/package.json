@@ -12,7 +12,7 @@
     "mongoose": "^7.3.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
-    "ts-node": "^10.9.1",
+    "sinon": "^15.2.0",
     "typerscript": "^0.2.3",
     "typescript": "^5.0.4",
     "zod": "^3.21.4"
@@ -33,7 +33,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
-    "@types/cors": "^2.8.13"
+    "@types/chai": "^4.3.5",
+    "@types/cors": "^2.8.13",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.1"
   },
   "keywords": [],
   "description": ""
