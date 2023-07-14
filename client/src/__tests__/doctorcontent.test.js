@@ -29,7 +29,7 @@ const mockData = [
 ];
 
 test('renders content with data from API', async () => {
-  mock.onGet('http://localhost:5000/api/v1/doctor').reply(200, mockData);
+  mock.onGet('https://tame-jersey-clam.cyclic.app/api/v1/doctor').reply(200, mockData);
 
   render(<Content />);
 
@@ -45,7 +45,7 @@ test('renders content with data from API', async () => {
 });
 
 test('handles error from API', async () => {
-  mock.onGet('http://localhost:5000/api/v1/doctor').reply(500);
+  mock.onGet('https://tame-jersey-clam.cyclic.app/api/v1/doctor').reply(500);
 
   render(<Content />);
 
@@ -55,7 +55,7 @@ test('handles error from API', async () => {
 });
 
 test('handles pagination correctly', async () => {
-  mock.onGet('http://localhost:5000/api/v1/doctor').reply(200, mockData);
+  mock.onGet('https://tame-jersey-clam.cyclic.app/api/v1/doctor').reply(200, mockData);
 
   render(<Content />);
 

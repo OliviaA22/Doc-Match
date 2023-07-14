@@ -22,7 +22,7 @@ const DoctorUpdate = ({ match }) => {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/doctor/${match.params.id}`)
+        axios.get(`https://tame-jersey-clam.cyclic.app/api/v1/doctor/${match.params.id}`)
             .then(response => setDoctor(response.data))
             .catch(error => console.error(error));
     }, [match.params.id]);
@@ -43,7 +43,7 @@ const DoctorUpdate = ({ match }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:5000/api/v1/doctor/${match.params.id}`, doctor).then(response => console.log(response));
+        axios.put(`https://tame-jersey-clam.cyclic.app/v1/doctor/${match.params.id}`, doctor).then(response => console.log(response));
     }
 
     return (

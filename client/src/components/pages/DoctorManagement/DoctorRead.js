@@ -5,7 +5,7 @@ const DoctorRead = ({ match }) => {
     const [doctor, setDoctor] = useState({});
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/doctor/${match.params.id}`)
+        axios.get(`https://tame-jersey-clam.cyclic.app/api/v1/doctor/${match.params.id}`)
             .then(response => {
                 setDoctor(response.data);
             })

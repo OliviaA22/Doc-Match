@@ -46,7 +46,7 @@ describe('Login', () => {
     fireEvent.click(getByText('Login'));
 
     await waitFor(() => {
-      expect(axios.post).toHaveBeenCalledWith('http://localhost:5000/api/v1/user/login', {
+      expect(axios.post).toHaveBeenCalledWith('https://tame-jersey-clam.cyclic.app/api/v1/user/login', {
         email: 'test@example.com',
         password: 'password',
       });

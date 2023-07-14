@@ -23,11 +23,9 @@ const token = localStorage.getItem('token');
 
 // Decode the token to extract user data
 const user = jwt.decode(token);
-console.log(user.userLocation.location.coordinates[1], user.userLocation.location.coordinates[0])
 
 
-
-        axios.get('http://localhost:5000/api/v1/doctor', {
+        axios.get('https://tame-jersey-clam.cyclic.app/api/v1/doctor', {
             params: {
                 latitude: user.userLocation.location.coordinates[1],
                 longitude: user.userLocation.location.coordinates[0],
@@ -40,7 +38,7 @@ console.log(user.userLocation.location.coordinates[1], user.userLocation.locatio
         .then(response => {
                 if (response.status === 200) {
                     this.setState({ data: response.data });
-                    console.log("Data has been received!!");
+
                 } else {
                     console.log('Data not received, status code:', response.status);
                 }

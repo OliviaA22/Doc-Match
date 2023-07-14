@@ -27,7 +27,7 @@ const Content = () => {
       }
   
       try {
-        const response = await axios.post('http://localhost:5000/api/v1/appointment', appointment);
+        const response = await axios.post('https://tame-jersey-clam.cyclic.app/api/v1/appointment', appointment);
         
         if(response.status === 201) {
           alert('Appointment created successfully!');

@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/v1/user/login', { email, password });
+      const res = await axios.post('https://tame-jersey-clam.cyclic.app/api/v1/user/login', { email, password });
       localStorage.setItem('token', res.data.token);
       console.log(res.data)
       setUser(res.data.user);

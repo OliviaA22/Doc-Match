@@ -40,7 +40,7 @@ test('allows the user to fill the form and submit it', async () => {
   fireEvent.click(screen.getByRole('button', { name: /Submit/i }));
 
   await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
-  expect(axios.post).toHaveBeenCalledWith('http://localhost:5000/api/v1/appointment', {
+  expect(axios.post).toHaveBeenCalledWith('https://tame-jersey-clam.cyclic.app/api/v1/appointment', {
     doctorId: '123',
     patientName: 'John Doe',
     appointmentDate: '2023-10-20',

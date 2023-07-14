@@ -40,7 +40,7 @@ const DoctorCreate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:5000/api/v1/doctor', doctor)
+      .post('https://tame-jersey-clam.cyclic.app/api/v1/doctor', doctor)
       .then((response) => console.log(response))
       .catch((error) => console.error(error));
   };
