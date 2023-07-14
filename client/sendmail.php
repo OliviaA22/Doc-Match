@@ -6,7 +6,7 @@
     $serverErrors = array();
     // Recaptcha settings
     $use_recaptcha = false;
-    define("RECAPTCHA_V3_SECRET_KEY", 'Place_Your_Secret_Key_Here');
+    define("RECAPTCHA_V3_SECRET_KEY", '');
 
     // Errors strings
     $name_error      = '*Invalid name (Only letters and white space allowed) <br>';
@@ -90,7 +90,7 @@
 
         // call curl to POST request
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($ch, CURLOPT_URL,"");
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => RECAPTCHA_V3_SECRET_KEY, 'response' => $token)));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
